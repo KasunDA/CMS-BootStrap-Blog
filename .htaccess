@@ -1,0 +1,27 @@
+RewriteEngine On
+RewriteRule ^([^/]+)\.html$ /?p_use=$1 [L]
+
+RewriteEngine On
+RewriteRule ^([0-9]+)$ /?p=$1 [L]
+
+RewriteEngine On
+RewriteRule ^([^/]+)/([^/]+)\.html$ /?p_use=$1&alias_art=$2 [L]
+
+RewriteEngine On
+RewriteRule ^([^/]+)\.html/([0-9]+)$ /?p_use=$1&p=$2 [L]
+
+
+RewriteEngine On
+RewriteRule ^archivie/([^/]+)\.htm$ /?p_use=archivie&t_arch=$1 [L]
+
+RewriteEngine On
+RewriteRule ^archivie/([^/]+)/([^/]+)\.htm$  /?p_use=archivie&t_arch=$1&art_arch=$2 [L]
+
+RewriteEngine On
+RewriteRule ^search/([^/]+)$ /?p_use=search&q=$1 [L]
+
+RewriteEngine On
+RewriteRule ^search/([^/]+)/([0-9]+)$ /?p_use=search&q=$1&p=$2 [L]
+
+RewriteEngine On
+RewriteRule ^print/([^/]+)\.htm$ /print.php?print_art=$1 [L]
