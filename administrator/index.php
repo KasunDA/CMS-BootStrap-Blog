@@ -1,0 +1,97 @@
+<?php
+if(file_exists("../installazione")){
+	header("Location: ../installazione/index.php");
+	exit;
+}
+
+require_once('../connect.php');
+$myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore Connessione: <b>" .mysqli_connect_error()."</b>");
+@mysqli_query($myconn," SET names 'UTF8' ");
+include("../lib.php");
+include("../contatori.php");
+$cod_md5 = $_GET["idut"];
+$query =" SELECT * FROM admin WHERE cod_md5='$cod_md5' ";
+$result = @mysqli_query($myconn,$query) or die( "Errore....".mysqli_error($myconn) );
+$row = mysqli_fetch_array($result);
+$nomeuser = $row['nome'];
+$cognomeuser = $row['cognome'];
+$nomecognomeuser = $nomeuser." ".$cognomeuser;
+$user = $row['username'];
+$tipo_utente = $row['tipo_utente'];
+$nomecookie = "_ut";
+$valore_cookie = $cod_md5;
+if (!isset($_COOKIE[$nomecookie]) || (isset($_COOKIE[$nomecookie]) && $_COOKIE[$nomecookie]!=$cod_md5)) {
+    header("Location: ../login.php?error=not_view");
+  exit;
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+<meta charset="utf-8">
+<title>CMS&nbsp;Bootstrap&nbsp;Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+$backend = "back-end";
+$sqlactive_theme = "select * from themes where tipo_themes ='$backend' ";
+$rsactive_theme = @mysqli_query($myconn,$sqlactive_theme) or die( "Errore....".mysqli_error($myconn) );	
+while($rowactive_theme = mysqli_fetch_array($rsactive_theme)){
+$name_themes = $rowactive_theme['name_themes'];
+$st_themes = $rowactive_theme['st_themes'];
+if( $st_themes=="attivo" ){
+?>
+<link href="../assets/css/temi/<?php echo $name_themes; ?>/bootstrap.css" rel="stylesheet">
+<?php	
+}
+}
+?>
+<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="../assets/css/bootstrap-datepicker.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link href="../assets/css/style.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="../assets/js/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+
+<div class="container-fluid"><!-- container fluid-->
+
+<!-- Header-->
+<?php include('header/header_admin.php')?>
+<!-- Header--> 
+
+<div class="row-fluid"><!-- row1 fluid-->
+<div class="span12">
+<?php include("menu/menu.php")?>
+</div>
+</div><!-- row1 fluid-->
+
+<!-- Header Page-->
+<?php include('header/header_page.php')?>
+<!-- Header Page--> 
+
+<div class="row-fluid"><!-- row2 fluid-->
+<div class="span12">  
+<?php include('page_use/page_use.php'); ?> 
+</div>
+</div><!-- row2 fluid-->
+</div><!-- container fluid-->
+
+<?php include('footer/footer.php');?>
+
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/jquery.easing.1.3.js"></script>
+<script src="../assets/js/bootstrap.js"></script>
+<script src="../assets/js/bootstrap-datepicker.min.js"></script>
+<script src="../assets/js/bootstrap-datepicker.it-CH.min.js"></script>
+<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+<script>CKEDITOR.replace('contenuto');</script>
+<script src="../assets/js/script.js"></script>
+</body>
+</html>
