@@ -10,4 +10,11 @@ In the Back- End CMS Bootstrap Blogs are available many features to better manag
 4. Change the Blog template with those available in the " Template " ;
 5. Manage comments that users enter in the articles, ban a junk ' email , reply directly from the back end to a comment from a      user .
 
-CMS Bootstrap Blog uses as a package of Font Awesome icons , so you can use all the icons available on fortawesome.github.io site , and as mentioned , as it is based on BootStrap 2 , you can use all of its features for the creation of a article or page .
+> CMS Bootstrap Blog uses as a package of Font Awesome icons , so you can use all the icons available on fortawesome.github.io 
+> site , and as mentioned , as it is based on BootStrap 2 , you can use all of its features for the creation of a article or 
+> page.
+
+> To install CMS BootStrap Blog you have to have a web space with the active database.
+
+> During installation, the username and password will be the access data to the control panel .
+
