@@ -16,6 +16,10 @@ In the Back- End CMS Bootstrap Blogs are available many features to better manag
 > To install CMS BootStrap Blog you have to have a web space with the active database.
 > During installation, the username and password will be the access data to the control panel .
 
+# URL Font Awersome
 [Font Awersome](https://fortawesome.github.io/Font-Awesome)
 
+# URL BootStrap 2
 [BootStrap 2](http://getbootstrap.com/examples/blog/)
+
+
