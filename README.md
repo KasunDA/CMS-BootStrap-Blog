@@ -13,8 +13,9 @@ In the Back- End CMS Bootstrap Blogs are available many features to better manag
 > CMS Bootstrap Blog uses as a package of Font Awesome icons , so you can use all the icons available on fortawesome.github.io 
 > site , and as mentioned , as it is based on BootStrap 2 , you can use all of its features for the creation of a article or 
 > page.
-
 > To install CMS BootStrap Blog you have to have a web space with the active database.
-
 > During installation, the username and password will be the access data to the control panel .
 
+[Font Awersome](https://fortawesome.github.io/Font-Awesome)
+
+[BootStrap 2](http://getbootstrap.com/examples/blog/)
