@@ -39,13 +39,17 @@ and the Administrator Data :
 
 ----------
 
-
 ### URL BootStrap 2
 [BootStrap 2](http://getbootstrap.com/examples/blog/)
 
 
 ----------
 
+### Project Page Github.io
+[micheledef.github.io/CMS-BootStrap-Blog](http://micheledef.github.io/CMS-BootStrap-Blog)
+
+
+----------
 
 ### Contact Developer
 [@micheledefalco](https://twitter.com/_micheledefalco)
