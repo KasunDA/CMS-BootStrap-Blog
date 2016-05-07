@@ -1,25 +1,33 @@
 ## CMS BootStrap Blog
+===================
 
-CMS BootStrap Blog is a content management system for creating a personal blog on Bootstrap based 2.
-Both the Front - End and Back- End have a responsive layout based on Bootstrap 2 .
-In the Back- End CMS Bootstrap Blogs are available many features to better manage the blog , including:
 
-1. Create, edit and manage items and Categories Articles ;
-2. Manage users authorized to access the back-end , including creating a new user , please send an email to all users or a single    user ;
-3. Managing the menu at the top of the Blog , menu items , enable or disable a menu item , change the url of each item , ect ..;
-4. Change the Blog template with those available in the " Template " ;
-5. Manage comments that users enter in the articles, ban a junk ' email , reply directly from the back end to a comment from a      user .
+Bootstrap Blog CMS is a Content Management System ( CMS ) to create a blog for personal use .
 
-> CMS Bootstrap Blog uses as a package of Font Awesome icons , so you can use all the icons available on fortawesome.github.io 
-> site , and as mentioned , as it is based on BootStrap 2 , you can use all of its features for the creation of a article or 
-> page.
-> To install CMS BootStrap Blog you have to have a web space with the active database.
-> During installation, the username and password will be the access data to the control panel .
+The Front - End and Back- End have a responsive layout based on Bootstrap 2 .
 
-### URL Font Awersome
+----------
+
+
+Get Started
+-------------
+
+To start using the CMS you must have active one with a **database** running web space ( and a **user** ) .
+Upload all files in the CMS folder on the root of the site , to upload the files you can use software such as [Filezilla](https://filezilla-project.org/).
+Open the site index is automatically start the installation of the CMS , during this operation the data related to the web server will be asked :
+**host name** ,
+**username**;
+**user password** ( if any) ;
+**database name** ;
+and the Administrator Data :
+**username** and **password** ( these will be used to access the control panel) .
+
+###URL Font Awersome
 [Font Awersome](https://fortawesome.github.io/Font-Awesome)
 
 ### URL BootStrap 2
 [BootStrap 2](http://getbootstrap.com/examples/blog/)
 
+### Contact Developer
+[@micheledefalco](https://twitter.com/_micheledefalco)
 
