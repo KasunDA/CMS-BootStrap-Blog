@@ -16,10 +16,10 @@ To start using the CMS you must have active one with a **database** running web 
 Upload all files in the CMS folder on the root of the site , to upload the files you can use software such as [Filezilla](https://filezilla-project.org/).
 Open the site index is automatically start the installation of the CMS , during this operation the data related to the web server will be asked :
 
- 1. **host name** ,
+ 1. **host name** ;
  2. **username**;
  3. **user password** ( if any) ;
- 4. **database name** ;
+ 4. **database name** .
 
 
 ----------
