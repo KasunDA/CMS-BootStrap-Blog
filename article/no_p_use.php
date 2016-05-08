@@ -50,7 +50,7 @@ $num_rssqlarticoli = $rssqlarticoli->num_rows;
 
 $all_pages_articoli_cat = ceil( $num_rssqlarticoli / $view_art ); 
 
-$sqlarticoli_p = "select * from articoli where categoria='$nomecategoria' and visibility='Si' and archiviato = 'No' LIMIT $first , $view_art";
+$sqlarticoli_p = "select * from articoli where categoria='$nomecategoria' and visibility='Si' and archiviato = 'No' ORDER BY datacreate DESC LIMIT $first , $view_art";
 $rssqlarticoli_p = @mysqli_query($myconn,$sqlarticoli_p) or die( "Errore....".mysqli_error($myconn) );	
 
 while($rowsqlarticoli  = mysqli_fetch_array( $rssqlarticoli_p )){	
