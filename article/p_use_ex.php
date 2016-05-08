@@ -107,7 +107,7 @@ if( $narticoli!=0  ){
 	
 if( !isset($_GET['alias_art']) ){
 $all_pages_p_use_articoli_cat = ceil( $narticoli / $view_art ); 
-$sqlarticoli_p = "select * from articoli where categoria='$implodep_use' and visibility='Si' and archiviato = 'No' LIMIT $first , $view_art ";
+$sqlarticoli_p = "select * from articoli where categoria='$implodep_use' and visibility='Si' and archiviato = 'No' ORDER BY datacreate DESC LIMIT $first , $view_art ";
 $rssqlarticoli_p = @mysqli_query($myconn,$sqlarticoli_p) or die( "Errore....".mysqli_error($myconn) );	
 
 while($rowarticolivis = mysqli_fetch_array($rssqlarticoli_p)){
