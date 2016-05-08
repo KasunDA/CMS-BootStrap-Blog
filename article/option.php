@@ -5,7 +5,7 @@ $url_page ="http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 <br>
 <ul class="inline" id="option_share">
 <li><a href="http://www.facebook.com/sharer.php?u=<?php echo $url_page;?>&amp;t=<?php echo $title_comp;?>"  target="_self"><i class="fa fa-facebook fa-lg" data-toggle="tooltip" title="Condividi su Facebook"></i></a></li>
-<li><a href="/print/<?php echo $aliasarticle.".htm"; ?>" target="_self"><i class="fa fa-print fa-lg" data-toggle="tooltip" title="Stampa l'Articolo"></i></a></li>
+<li><a href="javascript:window.print();" target="_self"><i class="fa fa-print fa-lg" data-toggle="tooltip" title="Stampa l'Articolo"></i></a></li>
 <li>
 <?php
 $mylike = NULL;	
