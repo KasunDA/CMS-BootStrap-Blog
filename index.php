@@ -35,7 +35,7 @@ header("Location: /");
 exit;
 }
 
-$sql_art_vis_no_arch_p = " SELECT * FROM articoli WHERE visibility = \"Si\" AND archiviato = \"No\" LIMIT ".$first." , ".$view_art ;
+$sql_art_vis_no_arch_p = " SELECT * FROM articoli WHERE visibility = \"Si\" AND archiviato = \"No\" ORDER BY datacreate DESC LIMIT ".$first." , ".$view_art ;
 $rs_sql_art_vis_no_arch_p = @mysqli_query($myconn,$sql_art_vis_no_arch_p) or die( "Errore....".mysqli_error($myconn) );
 
 
