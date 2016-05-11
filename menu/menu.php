@@ -5,9 +5,7 @@ $logo = html_entity_decode($rowsetting['logo_blog']);
 <span id="test_cook"></span>
 <div class="navbar-inner">
 <div class="container">
-<div class="row">
-<div class="span12">
-<div class="span8 offset1">
+
 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
@@ -47,9 +45,7 @@ echo "<li><a href=\"/".$url_voci_menu[$i].".html\">".$voci_menu[$i]."</a></li>";
 </ul>
 </div>
 <!--/.nav-collapse -->
-</div>
-</div>
-</div>
+
 </div>
 </div>
 </div>
