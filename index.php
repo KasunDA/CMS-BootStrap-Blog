@@ -144,28 +144,33 @@ if( strlen($gooanaly)!=0){
 ================================================== -->
 
 <div class="container blog-cont"><!-- container -->	
-<div class="row"> <!-- row 1-->
+<div class="row-fluid">
+<div class="span12">
+<div class="span8">
 
-<div class="span12"><!--Span12-->  
-<div class="span7 offset1"><!--span7 offset1-->
-
+<div class="row-fluid">
+<div class="span12">
 <!-- Breadcrumb
 ================================================== -->
 <?php include('/article/breadcrumb/breadcrumb.php');  ?>
 <!-- Breadcrumb
 ================================================== -->
+</div>
+</div>
 
+<div class="row-fluid">
+<div class="span12">
 <!-- Blog Title
-================================================== -->
-<div class="row">
-<div class="span7">	  
+================================================== -->  
 <?php include('/blog_title/blog_title.php'); ?>	  
-</div>
-</div>
 <!-- Blog Title
 ================================================== -->
+</div>
+</div>
 <hr>
 
+<div class="row-fluid">
+<div class="span12">
 <!-- Article
 ================================================== -->	  
 <?php 
@@ -173,88 +178,85 @@ include('/article/article.php');
 ?>	 	
 <!-- Article
 ================================================== -->	
+</div>
+</div>
 
-
-</div><!--span7 offset1-->
-
-<div class="span2 offset1">
+</div>
+<div class="span3 offset1">
+<div class="row-fluid">
+<div class="span12">
 <!--search
 ================================================== -->
-<div class="row">	
-<div class="span2">
 <?php include('/section_right/search.php'); ?>
-</div>
-</div>
 <!--search
-================================================== -->	
+================================================== -->
+</div>
+</div>
 <hr>
 
+<div class="row-fluid">
+<div class="span12">
 <!--about
 ================================================== -->
-<div class="row">	
-<div class="span2">
 <div class="well">
-
 <?php include('/section_right/about.php'); ?>
-
-</div>
-</div>
 </div>
 <!--about
-================================================== -->	
-
+================================================== -->
+</div>
+</div>
 <hr>
 
-
-<!--articoli recenti
+<div class="row-fluid">
+<div class="span12">
+<!--Preferiti
 ================================================== -->
-<div class="row">	
-<div class="span2">
 <?php include('/section_right/mylike.php'); ?>
+<!--Preferiti
+================================================== -->
 </div>
 </div>
-<!--articoli recenti
-================================================== -->	
 <hr>
 
+<div class="row-fluid">
+<div class="span12">
 <!--articoli recenti
 ================================================== -->
-<div class="row">	
-<div class="span2">
 <?php include('/section_right/ult_art.php'); ?>
-</div>
-</div>
 <!--articoli recenti
-================================================== -->	
-
+================================================== -->
+</div>
+</div>
 <hr>
 
+
+<div class="row-fluid">
+<div class="span12">
 <!--archivie
 ================================================== -->	
-<div class="row">	
-<div class="span2">
 <?php include('/section_right/archivie.php'); ?>
-</div>
-</div>
 <!--archivie
 ================================================== -->	
-	
+</div>
+</div>
 <hr>
 
+<div class="row-fluid">
+<div class="span12">
 <!--social
 ================================================== -->
-<div class="row">	
-<div class="span2">
 <?php include('/section_right/social.php'); ?>
-</div>
-</div>
 <!--social
 ================================================== -->
+</div>
+</div>
 <hr>
 
+
 </div>
-</div><!--Span12-->  
-</div><!-- row 1-->
+
+</div>
+</div>
 </div><!-- container -->	
 
 <!--Footer
