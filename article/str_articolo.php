@@ -4,8 +4,7 @@ $rstot_comment = @mysqli_query($myconn,$sqltot_comment) or die( "Errore....".mys
 $num_tot_comment = $rstot_comment->num_rows;
 ?>
 
-<div class="row">
-<div class="span7">
+
 <div class="blog-post">
 <?php
 if( isset($_GET['art_arch']) ){
@@ -203,6 +202,5 @@ include('/article/commenti/commenti.php');
 }
 }
 ?>
-</div>  
-</div>
+
 </div>
