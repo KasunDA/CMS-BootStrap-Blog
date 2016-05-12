@@ -113,7 +113,7 @@ body{margin-bottom:180px;}
 .mylike{color:green !important;}
 
 
-
+div.table-responsive{overflow-x: auto;}
 
 
 </style>
