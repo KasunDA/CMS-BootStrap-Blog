@@ -28,8 +28,8 @@ include('/article/p_use_ex.php');
 }
 else{
 ?>
-<div class="row">
-<div class="span7">
+<div class="row-fluid">
+<div class="span12">
 <div class="blog-post">
 <div class="alert alert-error">
 <strong><i class="fa fa-exclamation-triangle"></i> Errore!</strong> La pagina richesta non esiste.<br>
