@@ -65,7 +65,7 @@ $array_query = array();
 for( $i=0;$i<count($array_q);$i++ ){
 $array_query[$i] = "'%".$array_q[$i]."%'";	
 }
-$sqlsearch = "select * from articoli where titart LIKE ".implode(" OR titart LIKE ",$array_query)." OR contart LIKE ".implode("OR contart LIKE ",$array_query);
+$sqlsearch = "select * from articoli where ( visibility=\"Si\" and archiviato=\"No\" ) and ( titart LIKE ".implode(" OR titart LIKE ",$array_query)." OR contart LIKE ".implode("OR contart LIKE ",$array_query).")" ;
 
 }
 
@@ -82,7 +82,7 @@ $array_query = array();
 for( $i=0;$i<count($array_q);$i++ ){
 $array_query[$i] = "'%".$array_q[$i]."%'";	
 }
-$sqlsearchquery = "select * from articoli where titart LIKE ".implode(" OR titart LIKE ",$array_query)." OR contart LIKE ".implode("OR contart LIKE ",$array_query)." LIMIT ".$first." , ".$view_art;
+$sqlsearchquery = "select * from articoli where ( visibility=\"Si\" and archiviato=\"No\" ) and ( titart LIKE ".implode(" OR titart LIKE ",$array_query)." OR contart LIKE ".implode("OR contart LIKE ",$array_query)." ) LIMIT ".$first." , ".$view_art;
 
 }
 
