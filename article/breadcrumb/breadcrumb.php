@@ -53,7 +53,6 @@ $titbreadcrumb = $rowbreadcrumb['nome_categoria'];
 <ul class="breadcrumb">
 <li>Sei qui: </li>
 <li><a href="/">Home</a> <span class="divider">/</span></li>
-<li><b><a href="/<?php echo  $p_use.".html"; ?>"><?php echo ucwords($titbreadcrumb); ?></a></b> <span class="divider">/</span></li>
 <?php
 if(isset($_GET['alias_art'])){
 $alias_art = $_GET['alias_art'];
