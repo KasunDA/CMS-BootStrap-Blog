@@ -250,7 +250,7 @@ $sql_insert_config = "INSERT INTO `config` (
 							'CMS Bootstrap Blog', 
 							'CMS Bootstrap Blog', 
 							'Questo è un blog di esempio che si può gestire e creare con CMS Bootstrap Blog.', 
-							'&lt;h4&gt;About&lt;/h4&gt;\r\n&lt;p&gt;&lt;em&gt;Hi, I am Developer\r\nCMS Bootstrap Blog, you have the ability to create your personal blog.. :-) :-)&lt;/em&gt;\r\n', 
+							'&lt;h4&gt;About&lt;/h4&gt;\r\n&lt;p&gt;&lt;em&gt;Hi, I am Developer\r\nCMS Bootstrap Blog, you have the ability to create your personal blog.. :-) :-)&lt;/em&gt;&lt;/p&gt;\r\n', 
 							'CMS Bootstrap Blog &eacute; un Content Management System (CMS) per creare un Blog ad uso personale,  Front-End che il Back-End hanno un layout responsive basato su Bootstrap 2',
 							'CMS Bootstrap Blog, Crea Blog con CMS Bootstrap Blog', 
 							'https://www.facebook.com/defalcomic', 
