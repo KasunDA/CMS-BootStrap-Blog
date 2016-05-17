@@ -62,8 +62,14 @@ $rsalias_art = @mysqli_query($myconn,$sqlalias_art) or die( "Errore....".mysqli_
 $rwalias_art =  mysqli_fetch_array($rsalias_art);
 $titalias_art = $rwalias_art['titart'];
 ?>
+<li><a href="/<?php echo  $p_use.".html"; ?>"><?php echo ucwords($titbreadcrumb); ?></a> <span class="divider">/</span></li>
 <li><b><a href=""><?php echo ucwords($titalias_art); ?></a></b> <span class="divider">/</span></li>
 <?php
+}
+else{
+?>
+<li><b><a href="/<?php echo  $p_use.".html"; ?>"><?php echo ucwords($titbreadcrumb); ?></a></b> <span class="divider">/</span></li>
+<?php	
 }
 ?>
 
