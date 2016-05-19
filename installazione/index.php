@@ -225,9 +225,13 @@ dataType:'html',
 data: {hostname:host , dtname:dt , nut:nameut , passut:pasut , nuser:nome , cnuser:cnome , emailuser:email , user:us , passuser:pass},	
 beforeSend: function(){
 $('form#install').hide();	
+var htmlinfo = "<p class=\"text-info\"><em>Attendere..... <i class=\"fa fa-spinner fa-pulse\"></i></em></p>";
+$('span#msg').html(htmlinfo);
 },
 success: function(dati){ 
+setTimeout(function(){
 $('span#msg').html(dati);
+},4000); 
 }
 
 	
