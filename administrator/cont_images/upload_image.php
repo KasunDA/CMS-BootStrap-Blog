@@ -11,13 +11,13 @@ if (!isset($_FILES['userfile']) || !is_uploaded_file($_FILES['userfile']['tmp_na
 else{
 	
 $path = getcwd();
-$exp = explode('\\', $path);
+$exp = explode('/', $path);
 $count_exp = count($exp);
 $ult = $count_exp-1;
 $pen_ult = $count_exp-2;
 unset($exp[$ult]);
 unset($exp[$pen_ult]);
-$newpath = implode('\\', $exp);
+$newpath = implode('/', $exp);
 $uploaddir = $newpath."/images/";
 $userfile_tmp = $_FILES['userfile']['tmp_name'];
 $userfile_name = $_FILES['userfile']['name'];
