@@ -464,21 +464,21 @@ echo "<td><a href=\"../administrator/?idut=".$cod_md5."&p_use=all_article&dt=".$
 
 /* Option View Article*/
 echo "<td style=\"text-align:center;\">";
-include('article/article_opt_view/article_opt_view.php');
+include(  mypath( PATH_NAME , 'administrator/article/article_opt_view/article_opt_view.php' ) );
 echo  "</td>";
 /* Option View Article
 =======================*/
 
 /* Option Cest Article*/
 echo "<td style=\"text-align:center;\">";
-include('article/article_opt_cest/article_opt_cest.php');
+include(  mypath( PATH_NAME , 'administrator/article/article_opt_cest/article_opt_cest.php' ) );
 echo  "</td>";
 /* Option Cest Article
 =======================*/
 
 /* Option Arch Article*/
 echo "<td style=\"text-align:center;\">";
-include('article/article_opt_arch/article_opt_arch.php');
+include(  mypath( PATH_NAME , 'administrator/article/article_opt_arch/article_opt_arch.php' ) );
 echo "</td>";
 /* Option Arch Article
 =======================*/
@@ -535,4 +535,4 @@ echo "<tr><td><a href=\"../administrator/?idut=".$cod_md5."&p_use=all_article&nm
 <?php
 }
 ?>
-<?php include('article/pagin/pagination.php'); ?>
+<?php include(  mypath( PATH_NAME , 'administrator/article/pagin/pagination.php' ) ); ?>
