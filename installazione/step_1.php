@@ -40,11 +40,11 @@ exit;
 /* Dati Utente Reg. */
 
 $path = getcwd();
-$exp = explode('\\', $path);
+$exp = explode('/', $path);
 $count_exp = count($exp);
 $ult = $count_exp-1;
 unset($exp[$ult]);
-$newpath = implode('\\', $exp);
+$newpath = implode('/', $exp);
 
 if(!file_exists("../connect.php")){
 
