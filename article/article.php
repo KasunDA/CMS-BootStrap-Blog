@@ -12,7 +12,7 @@ if(!isset($_GET['cookie-policy'])){
 <?php	
 }
 else{	
-include("/article/cookie-policy.php");		
+include( mypath( PATH_NAME , "article/cookie-policy.php" ) );		
 }	
 }
 else{	
@@ -20,10 +20,10 @@ else{
 if(!isset($_GET['cookie-policy'])){	
 if( !isset($_GET['ref'])  ){	
 if( !isset($_GET['p_use']) ){
-include('/article/no_p_use.php');
+include( mypath( PATH_NAME , 'article/no_p_use.php' ) );
 }
 else{	
-include('/article/p_use_ex.php');		
+include( mypath( PATH_NAME , 'article/p_use_ex.php' ) );		
 }	
 }
 else{
@@ -42,7 +42,7 @@ Torna alla <a href="/">Home Page</a>.
 }	
 }
 else{
-include("/article/cookie-policy.php");
+include( mypath( PATH_NAME , "article/cookie-policy.php" ) );
 }
 }
 ?>	
