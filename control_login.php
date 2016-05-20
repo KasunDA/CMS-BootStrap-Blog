@@ -7,8 +7,14 @@ header("Location: ../login.php?error=cook");
 exit; 
 }
 else{  
-include("lib.php");
 require_once('connect.php');
+
+function mypath ($pathname , $file) {
+$file_include =  $pathname."/".$file;
+return $file_include;	
+};
+
+include( mypath( PATH_NAME , "lib.php" ) );
 $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore: <b>" .mysqli_connect_error()."</b>");
 @mysqli_query($myconn," SET names 'UTF8' ");
 
