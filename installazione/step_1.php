@@ -39,10 +39,17 @@ exit;
 }
 /* Dati Utente Reg. */
 
+$path = getcwd();
+$exp = explode('\\', $path);
+$count_exp = count($exp);
+$ult = $count_exp-1;
+unset($exp[$ult]);
+$newpath = implode('\\', $exp);
+
 if(!file_exists("../connect.php")){
 
 $connect = fopen("../connect.php", "a");
-$dati_riga = "<?php\ndefine('DB_HOST','".$hostname."');\ndefine('DB_USER','".$name_utente."');\ndefine('DB_PSW','".$pass_utente."');\ndefine('DB_NAME','".$dtname."');\n?>";
+$dati_riga = "<?php\ndefine('DB_HOST','".$hostname."');\ndefine('DB_USER','".$name_utente."');\ndefine('DB_PSW','".$pass_utente."');\ndefine('DB_NAME','".$dtname."');\ndefine('PATH_NAME','".$newpath."');\n?>";
 fwrite($connect,$dati_riga);
 fclose($connect);
 
@@ -50,7 +57,7 @@ fclose($connect);
 else{	
 unlink("../connect.php");	
 $connect = fopen("../connect.php", "a");
-$dati_riga = "<?php\ndefine('DB_HOST','".$hostname."');\ndefine('DB_USER','".$name_utente."');\ndefine('DB_PSW','".$pass_utente."');\ndefine('DB_NAME','".$dtname."');\n?>";
+$dati_riga = "<?php\ndefine('DB_HOST','".$hostname."');\ndefine('DB_USER','".$name_utente."');\ndefine('DB_PSW','".$pass_utente."');\ndefine('DB_NAME','".$dtname."');\ndefine('PATH_NAME','".$newpath."');\n?>";
 fwrite($connect,$dati_riga);
 fclose($connect);	
 }
