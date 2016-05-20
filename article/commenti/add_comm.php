@@ -1,5 +1,13 @@
 <?php
-require_once('/../../connect.php');
+$path = getcwd();
+$exp = explode('/', $path);
+$count_exp = count($exp);
+$ult = $count_exp-1;
+$pen_ult = $count_exp-2;
+unset($exp[$ult]);
+unset($exp[$pen_ult]);
+$newpath = implode('/', $exp);
+require_once($newpath.'/connect.php');
 $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore Connessione: <b>" .mysqli_connect_error()."</b>");
 @mysqli_query($myconn," SET names 'UTF8' ");
 
