@@ -385,7 +385,7 @@ echo "</td></tr>";
 </div> 
 </div>
 </div>
-<?php include('category/pagin_cat/pagination_cat.php'); ?>
+<?php include( mypath( PATH_NAME , 'administrator/category/pagin_cat/pagination_cat.php' ) ); ?>
 </div>
 
 <div class="span2">

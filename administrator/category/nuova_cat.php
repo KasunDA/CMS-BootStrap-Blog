@@ -1,8 +1,14 @@
 <?php
 require_once('../../connect.php');
+
+function mypath ($pathname , $file) {
+$file_include =  $pathname."/".$file;
+return $file_include;	
+};
+
 $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore Connessione: <b>" .mysqli_connect_error()."</b>");
 @mysqli_query($myconn," SET names 'UTF8' ");
-include('../../lib.php');
+include( mypath( PATH_NAME , "lib.php" ) );
 
 $idut =  $_GET['idut'];
 $nome_cat = addslashes( strtolower( $_POST['nome_cat'] ) );
