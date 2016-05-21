@@ -1,18 +1,13 @@
 <?php
 if(file_exists("../installazione")){ 	header("Location: ../installazione/index.php"); 	exit; }
 
-require_once('../connect.php');
-
-function mypath ($pathname , $file) {
-$file_include =  $pathname."/".$file;
-return $file_include;	
-};
-
+define('__ROOT__', dirname( dirname (  __FILE__ ) ) ); 
+require_once(__ROOT__.'/connect.php');
 
 $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore Connessione: <b>" .mysqli_connect_error()."</b>");
 @mysqli_query($myconn," SET names 'UTF8' ");
-include( mypath( PATH_NAME ,  "lib.php" ) );
-include( mypath( PATH_NAME , "contatori.php" ) );
+include( __ROOT__."/lib.php" );
+include( __ROOT__."/contatori.php" );
 
 $cod_md5 = $_GET["idut"];
 $query =" SELECT * FROM admin WHERE cod_md5='$cod_md5' ";
@@ -70,27 +65,27 @@ if( $st_themes=="attivo" ){
 <div class="container-fluid"><!-- container fluid-->
 
 <!-- Header-->
-<?php include( mypath( PATH_NAME , 'administrator/header/header_admin.php' ) )?>
+<?php include( __ROOT__.'/administrator/header/header_admin.php' )?>
 <!-- Header--> 
 
 <div class="row-fluid"><!-- row1 fluid-->
 <div class="span12">
-<?php include(  mypath( PATH_NAME , "administrator/menu/menu.php" ) )?>
+<?php include(  __ROOT__."/administrator/menu/menu.php" )?>
 </div>
 </div><!-- row1 fluid-->
 
 <!-- Header Page-->
-<?php include( mypath( PATH_NAME , 'administrator/header/header_page.php' ) )?>
+<?php include( __ROOT__.'/administrator/header/header_page.php' )?>
 <!-- Header Page--> 
 
 <div class="row-fluid"><!-- row2 fluid-->
 <div class="span12">  
-<?php include( mypath( PATH_NAME , 'administrator/page_use/page_use.php' ) ); ?> 
+<?php include( __ROOT__.'/administrator/page_use/page_use.php' ); ?> 
 </div>
 </div><!-- row2 fluid-->
 </div><!-- container fluid-->
 
-<?php include( mypath( PATH_NAME , 'administrator/footer/footer.php' ) );?>
+<?php include( __ROOT__.'/administrator/footer/footer.php' );?>
 
 <script src="../assets/js/jquery.js"></script>
 <script src="../assets/js/jquery.easing.1.3.js"></script>
