@@ -1,14 +1,10 @@
 <?php
-require_once('../../connect.php');
-
-function mypath ($pathname , $file) {
-$file_include =  $pathname."/".$file;
-return $file_include;	
-};
+define('__ROOT__', dirname( dirname (  dirname ( __FILE__ )  ) ) ); 
+require_once(__ROOT__.'/connect.php');
 
 $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore Connessione: <b>" .mysqli_connect_error()."</b>");
 @mysqli_query($myconn," SET names 'UTF8' ");
-include( mypath( PATH_NAME , "lib.php" ) );
+include( __ROOT__. "/lib.php" );
 
 $idut =  $_GET['idut'];
 $nome_cat = addslashes( strtolower( $_POST['nome_cat'] ) );
@@ -43,20 +39,4 @@ $insert = " INSERT INTO categorie (nome_categoria , alias_categoria ,data_cat , 
 $rs = @mysqli_query($myconn,$insert) or die( "Errore....".mysqli_error($myconn) );
 
 header("Location: ../../administrator/?idut=".$idut."&category=all");	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
