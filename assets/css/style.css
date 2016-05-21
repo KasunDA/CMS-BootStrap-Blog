@@ -134,12 +134,8 @@ height:auto;
 
 a#active_th , a#noactive_th{width:50px;font-size:9px;}
 
-ul.nav > li.dropdown > a.dropdown-toggle{ 
-
-z-index: -10;
-
-}
-ul.nav > li.dropdown > ul.dropdown-menu > li{
-	z-index: 10001;
+ul.nav > li.dropdown > ul.dropdown-menu > li {
+position: relative;
+z-index: 10000;
 }
 
