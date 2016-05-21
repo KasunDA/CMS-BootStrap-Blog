@@ -1,21 +1,13 @@
 <?php
-require_once('../../connect.php');
+define('__ROOT__', dirname( dirname (  dirname ( __FILE__  )  ) ) ); 
+require_once(__ROOT__.'/connect.php');
+
 $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore Connessione: <b>" .mysqli_connect_error()."</b>");
 @mysqli_query($myconn," SET names 'UTF8' ");
 
 if(isset($_GET['img'])){
 $img = 	$_GET['img'];
-
-$path = getcwd();
-$path = getcwd();
-$exp = explode('\\', $path);
-$count_exp = count($exp);
-$ult = $count_exp-1;
-$pen_ult = $count_exp-2;
-unset($exp[$ult]);
-unset($exp[$pen_ult]);
-$newpath = implode('\\', $exp);
-$uploaddir = $newpath."/images/";
+$uploaddir = __ROOT__."/images/";
 
 
 $delimg = " DELETE FROM images WHERE name_img='$img' ";
