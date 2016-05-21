@@ -18,9 +18,9 @@ $authorarticle =  ucwords($row_art_vis_no_arch['author']);
 $profileauthorarticle = $row_art_vis_no_arch['profile_author'];
 $contarticle = html_entity_decode($row_art_vis_no_arch['contart']);	
 $option_article = unserialize($row_art_vis_no_arch['option_article']);
-include( mypath( PATH_NAME , 'article/str_articolo.php' ) );
+include( __ROOT__.'/article/str_articolo.php' );
 }	
-include( mypath( PATH_NAME , 'article/pager/pager_all_p_use.php' ) );	
+include( __ROOT__.'/article/pager/pager_all_p_use.php' );	
 }
 else{
 $alias_art= $_GET['alias_art'];
@@ -38,7 +38,7 @@ $authorarticle =  ucwords($rowarticolivis['author']);
 $profileauthorarticle = $rowarticolivis['profile_author'];
 $contarticle = html_entity_decode($rowarticolivis['contart']);	
 $option_article = unserialize($rowarticolivis['option_article']);
-include( mypath( PATH_NAME ,  'article/str_articolo.php') );
+include( __ROOT__.'/article/str_articolo.php' );
 }	
 }	
 	
@@ -90,9 +90,9 @@ $rssearchquery = @mysqli_query($myconn,$sqlsearchquery) or die( "Errore....".mys
 
 echo "Totale risultati: <strong class=\"text-info\">".$nsearch."</strong> <hr>";
 
-include( mypath( PATH_NAME , 'article/str_articolo_search.php' ) );
+include( __ROOT__.'/article/str_articolo_search.php' );
 
-include( mypath( PATH_NAME , 'article/pager/pager_all_search.php' ) );	
+include( __ROOT__.'/article/pager/pager_all_search.php' );	
 
 
 }
@@ -119,10 +119,10 @@ $authorarticle =  ucwords($rowarticolivis['author']);
 $profileauthorarticle = $rowarticolivis['profile_author'];
 $contarticle = html_entity_decode($rowarticolivis['contart']);	
 $option_article = unserialize($rowarticolivis['option_article']);
-include( mypath( PATH_NAME , 'article/str_articolo.php' ) );
+include( __ROOT__.'/article/str_articolo.php');
 
 }	
-include( mypath( PATH_NAME , 'article/pager/pager_all_p_use_cat.php' ) );		
+include( __ROOT__.'/article/pager/pager_all_p_use_cat.php' );		
 }
 else{
 $sqlaliasarticolo = "select * from articoli where alias = '$alias_art'";
@@ -139,7 +139,7 @@ $authorarticle =  ucwords($rowarticolivis['author']);
 $profileauthorarticle = $rowarticolivis['profile_author'];
 $contarticle = html_entity_decode($rowarticolivis['contart']);	
 $option_article = unserialize($rowarticolivis['option_article']);
-include( mypath( PATH_NAME , 'article/str_articolo.php' ) );
+include( __ROOT__.'/article/str_articolo.php' );
 }	
 }	
 }
@@ -164,7 +164,7 @@ $authorarticle =  ucwords($rowarticolivis['author']);
 $profileauthorarticle = $rowarticolivis['profile_author'];
 $contarticle = html_entity_decode($rowarticolivis['contart']);	
 $option_article = unserialize($rowarticolivis['option_article']);
-include( mypath( PATH_NAME , 'article/str_articolo.php' ) );
+include( __ROOT__.'/article/str_articolo.php' );
 }	
 }
 
@@ -198,7 +198,7 @@ $query = $query.")";
 $sqlqueryart = "SELECT * FROM articoli WHERE visibility=\"Si\" AND idart IN $query ";	
 $rsqueryart = @mysqli_query($myconn,$sqlqueryart) or die( "Errore....".mysqli_error($myconn) );
 $numqueryart= $rsqueryart->num_rows;
-include( mypath( PATH_NAME , 'article/str_articolo_arch.php' ) );
+include( __ROOT__.'/article/str_articolo_arch.php' );
 	
 	
 	
@@ -218,7 +218,7 @@ $authorarticle =  ucwords($rowarticolivis['author']);
 $profileauthorarticle = $rowarticolivis['profile_author'];
 $contarticle = html_entity_decode($rowarticolivis['contart']);	
 $option_article = unserialize($rowarticolivis['option_article']);
-include( mypath( PATH_NAME , 'article/str_articolo.php' ) );
+include( __ROOT__.'/article/str_articolo.php' );
 }	
 }
 

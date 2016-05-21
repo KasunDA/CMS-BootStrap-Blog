@@ -1,4 +1,5 @@
 <?php
+
 $url = NULL;
 $sqlvocimenu = "select * from voci_menu where home='si'";
 $rssqlvocimenu = @mysqli_query($myconn,$sqlvocimenu) or die( "Errore....".mysqli_error($myconn) );
@@ -29,9 +30,9 @@ $profileauthorarticle = $row_art_vis_no_arch['profile_author'];
 $contarticle = html_entity_decode($row_art_vis_no_arch['contart']);	
 $option_article = unserialize($row_art_vis_no_arch['option_article']);
 
-include( mypath( PATH_NAME , 'article/str_articolo.php' ) );
+include( __ROOT__.'/article/str_articolo.php' ) ;
 }	
-include( mypath( PATH_NAME , 'article/pager/pager_all.php' ) );
+include( __ROOT__.'/article/pager/pager_all.php' ) ;
 }
 /* if url =>all_article */
 
@@ -63,9 +64,9 @@ $profileauthorarticle = $rowsqlarticoli['profile_author'];
 $contarticle = html_entity_decode($rowsqlarticoli['contart']);	
 $option_article = unserialize($rowsqlarticoli['option_article']);
 
-include( mypath( PATH_NAME , 'article/str_articolo.php' ) ) ;
+include( __ROOT__.'/article/str_articolo.php' ) ;
 }
-include( mypath( PATH_NAME , 'article/pager/pager_all_cat.php' ) );
+include( __ROOT__.'/article/pager/pager_all_cat.php' ) ;
 }
 
 /* if url => categoria */
@@ -86,7 +87,7 @@ $profileauthorarticle = $rowaliasarticolo['profile_author'];
 $contarticle = html_entity_decode($rowaliasarticolo['contart']);	
 $option_article = unserialize($rowaliasarticolo['option_article']);
 
-include( mypath( PATH_NAME , 'article/str_articolo.php' ) );
+include( __ROOT__.'/article/str_articolo.php' );
 }
 
 }

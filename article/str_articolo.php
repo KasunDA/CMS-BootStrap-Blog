@@ -124,7 +124,7 @@ else{
 echo $contarticle;
 for( $i=0;$i<count($option_article);$i++ ){
 if( $option_article[$i]=="comment" ){
-include( mypath( PATH_NAME , 'article/commenti/commenti.php' ) );	
+include( __ROOT__.'/article/commenti/commenti.php' );	
 }
 }
 }
@@ -157,7 +157,7 @@ echo $contarticle;
 
 for( $i=0;$i<count($option_article);$i++ ){
 if( $option_article[$i]=="opt" ){
-include( mypath( PATH_NAME , 'article/option.php' ) );	
+include( __ROOT__.'/article/option.php' );	
 }
 }
 
@@ -165,7 +165,7 @@ include( mypath( PATH_NAME , 'article/option.php' ) );
 
 for( $i=0;$i<count($option_article);$i++ ){
 if( $option_article[$i]=="comment" ){
-include( mypath( PATH_NAME , 'article/commenti/commenti.php' ) );	
+include( __ROOT__.'/article/commenti/commenti.php' );	
 }
 }
 }
@@ -190,13 +190,13 @@ echo $contarticle;
 
 for( $i=0;$i<count($option_article);$i++ ){
 if( $option_article[$i]=="opt" ){
-include( mypath( PATH_NAME , 'article/option.php' ) );	
+include( __ROOT__.'/article/option.php' );	
 }
 }
 
 for( $i=0;$i<count($option_article);$i++ ){
 if( $option_article[$i]=="comment" ){
-include( mypath( PATH_NAME , 'article/commenti/commenti.php' ) );	
+include( __ROOT__.'/article/commenti/commenti.php' );	
 }
 }
 }
