@@ -1,5 +1,7 @@
 <?php
-require_once('../connect.php');
+define('__ROOT__', dirname( dirname (  __FILE__ ) ) ); 
+require_once(__ROOT__.'/connect.php');
+
 $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME);
 
 if ( mysqli_connect_errno() )
@@ -55,7 +57,7 @@ $sql_table_admin = "CREATE TABLE IF NOT EXISTS admin (
 					   login varchar(65) DEFAULT NULL,
 					   tipo_utente varchar(255) DEFAULT NULL,
 				  PRIMARY KEY (id_admin)
-                                  )";
+                                  ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";
 								
 
 
@@ -109,7 +111,7 @@ $sql_article = "CREATE TABLE IF NOT EXISTS `articoli` (
 				  `cestinato` varchar(4) DEFAULT NULL,
 				  `archiviato` varchar(65) DEFAULT NULL,
 				  PRIMARY KEY (`idart`)
-													)";							  
+				) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";							  
 								  
 							  
 
@@ -172,7 +174,7 @@ $sql_categorie = "CREATE TABLE IF NOT EXISTS `categorie` (
 						  `meta_key` varchar(265) DEFAULT NULL,
 						  `stato_cat` varchar(65) DEFAULT NULL,
 						  PRIMARY KEY (`idcategoria`)
-															)";
+						) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";
 
 
 if($myconn->query($sql_categorie)==TRUE){
@@ -222,7 +224,7 @@ $sql_config = "CREATE TABLE IF NOT EXISTS `config` (
 								  `gooanaly` varchar(265) DEFAULT NULL,
 								  `cookie_policy` mediumtext,
 								  PRIMARY KEY (`id_config`)
-													)";
+													) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";
 
 if($myconn->query($sql_config)==TRUE){
 
@@ -279,7 +281,7 @@ $sql_images = " CREATE TABLE IF NOT EXISTS `images` (
 				`name_img` varchar(265) DEFAULT NULL,
 				`url_img` varchar(265) DEFAULT NULL,
 				PRIMARY KEY (`id_img`)
-				) ";
+				) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";
 				
 				
 
@@ -298,7 +300,7 @@ $sql_menu = " CREATE TABLE IF NOT EXISTS `menu` (
 					  `voci_menu` varchar(255) DEFAULT NULL,
 					  `url_voci_menu` varchar(255) DEFAULT NULL,
 					  PRIMARY KEY (`id_menu`)
-					                              ) ";
+					                              ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";
 
 
 
@@ -337,7 +339,7 @@ $sql_vmenu = " CREATE TABLE IF NOT EXISTS `voci_menu` (
 										  `stato_voce_menu` varchar(255) DEFAULT NULL,
 										  `home` varchar(65) DEFAULT NULL,
 										  PRIMARY KEY (`id_voce_menu`)
-										               )  ";
+										               ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";
 
 
 													   
@@ -372,7 +374,7 @@ $sql_themes = " CREATE TABLE IF NOT EXISTS `themes` (
 				  `st_themes` varchar(65) DEFAULT NULL,
 				  `tipo_themes` varchar(65) DEFAULT NULL,
 				  PRIMARY KEY (`id_themes`)
-													) ";
+			) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";
 
 
 
@@ -417,7 +419,7 @@ $sql_comment = "CREATE TABLE IF NOT EXISTS `comment` (
 									  `nome_utente` varchar(265) DEFAULT NULL,
 									  `st_comment` varchar(65) DEFAULT NULL,
 									  PRIMARY KEY (`id_comment`)
-									)";
+									) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";
 
 
 									
@@ -432,7 +434,7 @@ $sql_email_bann = "CREATE TABLE IF NOT EXISTS `email_bann_comm` (
 													  `id_email_bann_comm` int(65) unsigned NOT NULL AUTO_INCREMENT,
 													  `email_bann` varchar(265) DEFAULT NULL,
 													  PRIMARY KEY (`id_email_bann_comm`)
-													)";
+													) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";
 
 													
 													
@@ -449,7 +451,7 @@ $sql_archivie = "CREATE TABLE IF NOT EXISTS `archivio` (
 						  `nome_archivio` varchar(265) DEFAULT NULL,
 						  `art_archiviati` text,
 						  PRIMARY KEY (`id_archivio`)
-														)";		
+														) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ";		
 
 
 
