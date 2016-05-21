@@ -11,11 +11,14 @@
 </a>
 
 <div class="nav-collapse collapse">
+
 <ul class="nav">
 <li class="dropdown">
+
 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contenuti
 <b class="caret"></b>
 </a>
+
 <ul class="dropdown-menu">
 <li><a href="../administrator/?idut=<?php echo $cod_md5; ?>&p_use=all_article">Articoli</a></li>
 <li><a href="../administrator/?idut=<?php echo $cod_md5?>&new_article">Nuovo Articolo</a></li>
@@ -24,7 +27,9 @@
 <li><a href="../administrator/?idut=<?php echo $cod_md5; ?>&category=all">Categorie</a></li>
 <li><a href="../administrator/?idut=<?php echo $cod_md5; ?>&new_category">Nuova Categoria</a></li>	
 </ul>
+
 </li>
+
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utenti
 <b class="caret"></b>
