@@ -1,14 +1,10 @@
 <?php
 if(file_exists("installazione")){ 	header("Location: ../installazione/index.php"); 	exit; }
 
-require_once('connect.php');
+define( '__ROOT__', dirname(__FILE__) );
+require_once(__ROOT__.'/connect.php');
 
-function mypath ($pathname , $file) {
-$file_include =  $pathname."/".$file;
-return $file_include;	
-};
-
-include( mypath( PATH_NAME , "lib.php") ) ;
+include( __ROOT__."/lib.php") ;
 $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore Connessione: <b>" .mysqli_connect_error()."</b>");
 @mysqli_query($myconn," SET names 'UTF8' ");
 
@@ -49,8 +45,8 @@ $rs_sql_art_vis_no_arch_p = @mysqli_query($myconn,$sql_art_vis_no_arch_p) or die
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<?php include( mypath( PATH_NAME , 'meta_tag_blog/meta_tag_blog.php' ) ); ?>
-<?php include( mypath( PATH_NAME , 'title_blog/title_blog.php' ) ); ?>
+<?php include( __ROOT__.'/meta_tag_blog/meta_tag_blog.php' ) ; ?>
+<?php include( __ROOT__.'/title_blog/title_blog.php' ) ; ?>
 
 <?php
 $frontend = "front-end ";
@@ -132,7 +128,7 @@ div.table-responsive{overflow-x: auto;}
 <?php
 $gooanaly = $rowsetting['gooanaly'];	
 if( strlen($gooanaly)!=0){
- include_once( mypath( PATH_NAME , "administrator/setting/analyticstracking.php" ) );
+ include_once( __ROOT__."/administrator/setting/analyticstracking.php" ) ;
 }
 ?>
 <!-- Analytics Tracking
@@ -141,7 +137,7 @@ if( strlen($gooanaly)!=0){
 
 <!-- NAVBAR
 ================================================== -->
-<?php include( mypath( PATH_NAME , 'menu/menu.php' ) ); ?>
+<?php include( __ROOT__.'/menu/menu.php' ) ; ?>
 <!-- NAVBAR
 ================================================== -->
 
@@ -154,7 +150,7 @@ if( strlen($gooanaly)!=0){
 <div class="span12">
 <!-- Breadcrumb
 ================================================== -->
-<?php include( mypath( PATH_NAME , 'article/breadcrumb/breadcrumb.php' ) );  ?>
+<?php include( __ROOT__.'/article/breadcrumb/breadcrumb.php' ) ;  ?>
 <!-- Breadcrumb
 ================================================== -->
 </div>
@@ -164,7 +160,7 @@ if( strlen($gooanaly)!=0){
 <div class="span12">
 <!-- Blog Title
 ================================================== -->  
-<?php include( mypath( PATH_NAME , 'blog_title/blog_title.php' ) ); ?>	  
+<?php include( __ROOT__.'/blog_title/blog_title.php' ) ; ?>	  
 <!-- Blog Title
 ================================================== -->
 </div>
@@ -176,7 +172,7 @@ if( strlen($gooanaly)!=0){
 <!-- Article
 ================================================== -->	  
 <?php 
-include( mypath( PATH_NAME , 'article/article.php' ) ); 
+include( __ROOT__.'/article/article.php' ) ; 
 ?>	 	
 <!-- Article
 ================================================== -->	
@@ -189,7 +185,7 @@ include( mypath( PATH_NAME , 'article/article.php' ) );
 <div class="span12">
 <!--search
 ================================================== -->
-<?php include( mypath( PATH_NAME , 'section_right/search.php' ) ); ?>
+<?php include( __ROOT__.'/section_right/search.php' ) ; ?>
 <!--search
 ================================================== -->
 </div>
@@ -201,7 +197,7 @@ include( mypath( PATH_NAME , 'article/article.php' ) );
 <!--about
 ================================================== -->
 <div class="well">
-<?php include( mypath( PATH_NAME , 'section_right/about.php' ) ); ?>
+<?php include( __ROOT__.'/section_right/about.php' ) ; ?>
 </div>
 <!--about
 ================================================== -->
@@ -213,7 +209,7 @@ include( mypath( PATH_NAME , 'article/article.php' ) );
 <div class="span12">
 <!--Preferiti
 ================================================== -->
-<?php include( mypath( PATH_NAME , 'section_right/mylike.php') ); ?>
+<?php include( __ROOT__.'/section_right/mylike.php') ; ?>
 <!--Preferiti
 ================================================== -->
 </div>
@@ -224,7 +220,7 @@ include( mypath( PATH_NAME , 'article/article.php' ) );
 <div class="span12">
 <!--articoli recenti
 ================================================== -->
-<?php include( mypath( PATH_NAME , 'section_right/ult_art.php') ); ?>
+<?php include( __ROOT__.'/section_right/ult_art.php') ; ?>
 <!--articoli recenti
 ================================================== -->
 </div>
@@ -236,7 +232,7 @@ include( mypath( PATH_NAME , 'article/article.php' ) );
 <div class="span12">
 <!--archivie
 ================================================== -->	
-<?php include( mypath( PATH_NAME , 'section_right/archivie.php') ); ?>
+<?php include( __ROOT__.'/section_right/archivie.php') ; ?>
 <!--archivie
 ================================================== -->	
 </div>
@@ -247,7 +243,7 @@ include( mypath( PATH_NAME , 'article/article.php' ) );
 <div class="span12">
 <!--social
 ================================================== -->
-<?php include( mypath( PATH_NAME , 'section_right/social.php') ); ?>
+<?php include( __ROOT__.'/section_right/social.php') ; ?>
 <!--social
 ================================================== -->
 </div>
@@ -263,7 +259,7 @@ include( mypath( PATH_NAME , 'article/article.php' ) );
 
 <!--Footer
 ================================================== -->
-<?php include( mypath( PATH_NAME , 'footer/footer_blog.php') ); ?>
+<?php include( __ROOT__.'/footer/footer_blog.php') ; ?>
 <!--Footer
 ================================================== -->
 
