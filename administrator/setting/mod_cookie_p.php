@@ -8,7 +8,7 @@ $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore Conness
 if( isset($_GET['idut']) ){
 $idut = $_GET['idut'];	
 
-$coopl = htmlentities(addslashes($_POST['coopl']));
+$coopl = addslashes( $_POST['coopl'] );
 
 $updetecook_pol = " update config set 
                  cookie_policy = '$coopl'
