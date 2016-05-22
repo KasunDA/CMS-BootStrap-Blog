@@ -1,6 +1,11 @@
 <?php
+
 define('__ROOT__', dirname( dirname (  dirname ( __FILE__  )  ) ) ); 
 require_once(__ROOT__.'/connect.php');
+
+if( isset($_GET['idut']) ){
+$idut = $_GET['idut'];	
+
 
 $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore Connessione: <b>" .mysqli_connect_error()."</b>");
 @mysqli_query($myconn," SET names 'UTF8' ");
@@ -29,10 +34,8 @@ $sqltruncate = "TRUNCATE TABLE images";
 $rstruncate = @mysqli_query($myconn,$sqltruncate) or die( "Errore....".mysqli_error($myconn) );
 }
 
-
-
-echo "<span class=\"text-success\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i> Immagine rimossa con successo.</span>";
+header("Location: ../../../administrator/?idut=".$idut."&images=_removed_file");
 
 }
-
+}
 ?>
