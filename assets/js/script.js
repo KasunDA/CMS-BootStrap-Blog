@@ -1131,14 +1131,6 @@ location.reload();
 
 
 
-$('body').on('click' , 'a.loadimg' , function(e){ 
-var attrid = $(this).attr('id');
-$('div#infoIMG > div.modal-body').load('/administrator/cont_images/loadimages.php?idimg='+attrid);
- });
-
-
-
-
 $('a.loadimg').click(function(){
 var attrid = $(this).attr('id');
 $('div#infoIMG > div.modal-body').load('/administrator/cont_images/loadimages.php?idimg='+attrid);
@@ -1171,8 +1163,8 @@ $('p#infoupload').html(msgg);
 },
 complete: function(){
 setTimeout(function(){
-$('div.container-img').load('/administrator/cont_images/load_all_img.php');
-},3000);
+location.reload();
+},4000);
 }
 });
 
@@ -1206,7 +1198,7 @@ $('p#infoupload').html(msgg);
 },
 complete: function(){
 setTimeout(function(){
-$('div.container-img').load('/administrator/cont_images/load_all_img.php');
+location.reload();
 },3000);
 }
 });
@@ -1214,36 +1206,7 @@ $('div.container-img').load('/administrator/cont_images/load_all_img.php');
 });
 
 
-$('body').on('click' , 'a#remove-img' , function(e){
-e.preventDefault();
-var del_url = $(this).attr('href');
 
-$.ajax({
-url: del_url,
-type:'POST', 
-cache: false,
-processData: false,
-contentType: false,
-beforeSend: function(){
-var msg = "<strong><em><span class=\"text-info\">Eliminazione in corso...<i class=\"fa fa-spinner fa-pulse\"></i></span></em></strong>";
-$('p#infoupload').html(msg);
-},
-success: function(dati){ 
-setTimeout(function(){
-var msgg ="<strong><em>"+dati+"</em></strong>"; 
-$('p#infoupload').html(msgg);
-},2000);
-
-},
-complete: function(){
-setTimeout(function(){
-$('div.container-img').load('/administrator/cont_images/load_all_img.php');
-},3000);
-}
-});
-
-
-});
 
 
 
