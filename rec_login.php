@@ -29,12 +29,12 @@ $row_recup = mysqli_fetch_array($rsrecup);
 $user = $row_recup['username'];
 $pw = $row_recup['password'];
 	
-$mittente = "From: PlayBlog\r\n$tipo_email";
+$mittente = "From: CMS BootStrap Blog\r\n$tipo_email";
 $object = "Recupero Dati di Accesso";
-$msg = "Non rispondere a questa E-Mail, messaggio generato in automatico.\n
-        I tuoi dati di accesso al pannello di amministrazione di PlayBlog CMS sono:\n
-		UserName: <b>".$user."</b>\n
-		PassWord: <b>".$pw."</b>\n
+$msg = "<p>Non rispondere a questa E-Mail, messaggio generato in automatico.</p>
+        <p>I tuoi dati di accesso al pannello di amministrazione di PlayBlog CMS sono:</p>
+		<p>UserName: <b>".$user."</b></p>
+		<p>PassWord: <b>".$pw."</b></p>
         ";
 
 
