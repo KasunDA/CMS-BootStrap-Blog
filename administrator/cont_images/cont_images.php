@@ -1,7 +1,67 @@
 <div class="row-fluid">
 <div class="span12">
-<p id="infoupload"></p>
-<form  action="../administrator/cont_images/upload_image.php" method="post" enctype="multipart/form-data" class="form-inline" id="form_upload">
+<p>
+<?php
+if( isset($_GET['images']) && $_GET['images']=="_success" ){	
+?>
+<div class="alert alert-success">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-check" aria-hidden="true"></i> Immagine caricata con successo.</strong> .
+</div>
+<?php		
+}
+if( isset($_GET['images']) && $_GET['images']=="_not_file" ){
+?>
+<div class="alert">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-info-circle" aria-hidden="true"></i> Non hai inviato nessun file...</strong> .
+</div>
+<?php		
+}
+if( isset($_GET['images']) && $_GET['images']=="_exist_file" ){
+?>
+<div class="alert alert-info">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-info-circle" aria-hidden="true"></i> Il file esiste già.!</strong> .
+</div>
+<?php		
+}
+if( isset($_GET['images']) && $_GET['images']=="_not_extension" ){
+?>
+<div class="alert alert-error">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Il file ha un estensione non ammessa! Usa solo immagini <em>.gif</em>, <em>.jpg</em> e <em>.png</em>.</strong> .
+</div>
+<?php	
+}
+if( isset($_GET['images']) && $_GET['images']=="_not_image" ){
+?>
+<div class="alert alert-error">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Puoi caricare solo immagini..</strong> .
+</div>
+<?php	
+}
+if( isset($_GET['images']) && $_GET['images']=="_error" ){
+?>
+<div class="alert alert-error">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Si è verificato un errore durante l'upload dell'immagine, riprova!</strong> .
+</div>
+<?php	
+}
+if( isset($_GET['images']) && $_GET['images']=="_removed_file" ){
+?>
+<div class="alert alert-info">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-check" aria-hidden="true"></i> Immagine rimossa con successo.</strong> .
+</div>
+<?php	
+}
+?>
+
+</p>
+<form  action="../administrator/cont_images/upload_image.php?idut=<?php echo $cod_md5; ?>" method="post" enctype="multipart/form-data" class="form-inline" id="form_upload">
 <input name="userfile" type="file">
 <input type="submit" value="Upload Immagine" class="btn btn-info">
 </form>
@@ -36,7 +96,7 @@ echo "<li class=\"span2\">
         <a href=\"#infoIMG\" class=\"thumbnail loadimg\" data-toggle=\"modal\" id=\"".$id_img."\">
         <img src=\"/../images/".$name_img."\" id=\"miniature_img\"> 
 		</a>
-		<a href=\"../administrator/cont_images/remove_img.php?img=".$name_img."\" class=\"btn btn-mini btn-block btn-info\" id=\"remove-img\">Elimina Immagine</a>
+		<a href=\"../administrator/cont_images/remove_img.php?img=".$name_img."&idut=".$cod_md5."\" class=\"btn btn-mini btn-block btn-info\" id=\"remove-img\">Elimina Immagine</a>
 	    </li>
 	   ";		
 }
