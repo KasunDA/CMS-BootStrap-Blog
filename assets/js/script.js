@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 $('#myTab a').click(function (e) {
 e.preventDefault();
 $(this).tab('show');
@@ -137,8 +138,7 @@ return 	testoCompl;
 var valurl = null;
 var valid = null;
 var artvisibile = false;
-var $dettaglio = $('<div class="dettaglio"></div>');
-var $velo = $('<div class="velo"></div>');   
+ 
 
 /* Submit form.mod_profilo */
 $('form.mod_profilo').submit(function(){
@@ -172,31 +172,19 @@ var regexp = /[0-9]+$/;
 }
 
 if( val.length==0 ){ 
-$dettaglio.prependTo('body');
-$velo.prependTo('body');
-
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Devi compilare il campo:<b>" + " " +id+"</b></p><p class=\"text-right\"><button class=\"btn btn-default conf\" id=\""+id+"\">OK</button></p>";
+var testo = "<p>Devi compilare il campo:<b>" + " " +id+"</b></p><p class=\"text-right\"><button class=\"btn btn-info conf\" id=\""+id+"\">OK</button></p>";
 
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);		
 }
 
 $('body').on('click','button.conf',function(){
 var idinput = $('button.conf').attr('id');
-$('div.dettaglio , div.velo').remove();
+$('#myModal').modal('hide');
+setTimeout(function(){
 $( 'form input#'+idinput ).focus();
+},1000);
 artvisibile = false;
 });
 
@@ -205,30 +193,18 @@ artvisibile=true;
 return false;
 }
 if(val.length!=0 && !val.match(regexp)){
-$dettaglio.prependTo('body');
-$velo.prependTo('body');
-
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Campo<b>" + " " +id+"</b> non valido!</p><p class=\"text-right\"><button class=\"btn btn-default conf\" id=\""+id+"\">OK</button></p>";
+var testo = "<p>Campo<b>" + " " +id+"</b> non valido!</p><p class=\"text-right\"><button class=\"btn btn-info conf\" id=\""+id+"\">OK</button></p>";
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);	
 }
 
 $('body').on('click','button.conf',function(){
 var idinput = $('button.conf').attr('id');
-$('div.dettaglio , div.velo').remove();
+$('#myModal').modal('hide');
+setTimeout(function(){
 $( 'form input#'+idinput ).focus();
+},1000);
 artvisibile = false;
 });	
 	
@@ -244,102 +220,60 @@ if(errore == 0){return true}
 });
 /* Submit form.mod_profilo */
 
-/* Submit form.modarticolo form.new_article */
-$('form.modarticolo , form.new_article , form.nuovacategoria').submit(function(){
+/* Submit form.new_article */
+$('form.modarticolo , form.new_article , form.nuovacategoria , form.modcategoria ').submit(function(){
 var errore =0;
-$('form.modarticolo input , form.new_article input , form.nuovacategoria input').each(function(){
+$('form.modarticolo input , form.new_article input , form.nuovacategoria input , form.modcategoria input').each(function(){
 var valore = $(this).val();
 var id = $(this).attr('id');
 var regexpdata = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
 
-if( valore.length==0 && ( $(this).attr('id')=="Titolo" || $(this).attr('id')=="Categoria" ) ){    
-$dettaglio.prependTo('body');
-$velo.prependTo('body');
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Devi compilare il campo:<b>" + " " + $(this).attr('id')+"</b></p><p class=\"text-right\"><button class=\"btn btn-default conf\">OK</button></p>";
+if( valore.length==0 && ( $(this).attr('id')=="Titolo" || $(this).attr('id')=="Categoria" ) ){ 
+var testo = "<p>Devi compilare il campo:<b>" + " " + $(this).attr('id')+"</b></p><p class=\"text-right\"><button class=\"btn btn-info conf\">OK</button></p>";
 
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);	
 }
+
 $('body').on('click','button.conf',function(){
-$('div.dettaglio , div.velo').remove();
+$('#myModal').modal('hide');
+setTimeout(function(){
 $( 'form input#Titolo , form input#Categoria' ).focus();
+},1000); 
 artvisibile = false;
 });
+
 errore = 1;
 artvisibile=true;
 return false;
 }
-if( valore.length!=0 &&  $(this).attr('id')=="Data" && !valore.match(regexpdata) ){
-$dettaglio.prependTo('body');
-$velo.prependTo('body');	
-	
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Campo<b>" + " " +id+"</b> non valido!</p><p class=\"text-right\"><button class=\"btn btn-default conf\" id=\""+id+"\">OK</button></p>";
+if( ( valore.length==0 ||  valore.length!=0 ) &&  $(this).attr('id')=="Data" && !valore.match(regexpdata) ){
+var testo = "<p>Campo<b>" + " " +id+"</b> non valido!</p><p class=\"text-right\"><button class=\"btn btn-info conf\" id=\""+id+"\">OK</button></p>";
+
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);	
 }
 
 $('body').on('click','button.conf',function(){
 var idinput = $('button.conf').attr('id');
-$('div.dettaglio , div.velo').remove();
+$('#myModal').modal('hide');
+setTimeout(function(){
 $( 'form input#'+idinput ).focus();
+},1000);
 artvisibile = false;
-});	
-	
+});
+
 errore = 1;
 artvisibile=true;
-return false;	
-	
+return false;
 }
 });
 if(errore >= 1){return false}
 if(errore == 0){return true}
 });
-/* Submit form.modarticolo form.new_article */
-
-
-$(window).bind('scroll , resize' ,  function(){
-if(artvisibile){
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-$('div.velo').css({
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$('div.dettaglio').animate({
-'top':  h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-},
-{duration:100,
-easing:'swing',
-queue:false}
-);
-}
-});
-
+/* Submit form.new_article */
 
 $('p#view_pass').click(function(e){
 	e.preventDefault();
@@ -492,17 +426,20 @@ $('a.cambiaurl').click(function(){
 var id = $(this).attr('id');
 var patern = $(this).parent().attr('id');
 var q = $('form#'+patern+' input#url').attr('value');
-$('div#myModal > div.modal-body').load('../administrator/menu/caricamodal.php?q='+q);
+$('div#myURL > div.modal-body').load('../administrator/menu/caricamodal.php?q='+q);
 valid = id;
 });
 
 
-$('div#myModal button#changeurl').click(function(){
-var idbutt = $(this).attr('id');
-$('div#myModal input:radio').each(function(){
+$('div#myURL button#changeurl').click(function(){
+
+$('div#myURL input:radio').each(function(){
+
 if($(this).is(':checked')){
 var newvalue = $(this).attr('value');
+
 $('form#mod_menu_'+valid+' input#url').attr('value',newvalue);
+
 }
 });
 });
@@ -557,31 +494,19 @@ var valinput = $(this).val();
 var idinput = $(this).attr('id');
 
 if( valinput.length==0 ){ 
-$dettaglio.prependTo('body');
-$velo.prependTo('body');
-
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Devi compilare il campo:<b>" + " " +primaMaiusc(idinput)+"</b></p><p class=\"text-right\"><button class=\"btn btn-default conf\" id=\""+idinput+"\">OK</button></p>";
+var testo = "<p>Devi compilare il campo:<b>" + " " +primaMaiusc(idinput)+"</b></p><p class=\"text-right\"><button class=\"btn btn-info conf\" id=\""+idinput+"\">OK</button></p>";
 
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);		
 }
 
 $('body').on('click','button.conf',function(){
 var idi = $('button.conf').attr('id');
-$('div.dettaglio , div.velo').remove();
+$('#myModal').modal('hide');
+setTimeout(function(){
 $inputfocus.focus();
+},2000)
 artvisibile = false;
 });
 
@@ -603,33 +528,17 @@ var errore = 0;
 var inputcheck = 0;
 
 $('form.send_email input:checkbox').each(function(){
-if(($(this).is(':checked'))){inputcheck = inputcheck+1;}
+if( ($(this).is(':checked')) ){ inputcheck = inputcheck+1; }
 
 if(inputcheck==0){
-$dettaglio.prependTo('body');
-$velo.prependTo('body');
-
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Devi indicare almeno un destinatario!!</p><p class=\"text-right\"><button class=\"btn btn-default conf\">OK</button></p>";
+var testo = "<p>Devi indicare almeno un destinatario!!</p><p class=\"text-right\"><button class=\"btn btn-info conf\">OK</button></p>";
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);		
 }
 
 $('body').on('click','button.conf',function(){
-var idi = $('button.conf').attr('id');
-$('div.dettaglio , div.velo').remove();
-$inputfocus.focus();
+$('#myModal').modal('hide');
 artvisibile = false;
 });
 
@@ -658,26 +567,13 @@ var $del_article = $('a.del_article');
 e.preventDefault();
 id_adelete_user = $(this).attr('id');
 var errore = 0;
-$dettaglio.prependTo('body');
-$velo.prependTo('body');
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Vuoi Eliminare Questo Utente?</p><p class=\"text-right\"><button class=\"btn btn-default conf\">No</button>&nbsp;<button class=\"btn btn-default del\">Si</button></p>";
+var testo = "<p>Vuoi Eliminare Questo Utente?</p><p class=\"text-right\"><button class=\"btn btn-info del\">Si</button>&nbsp;<button class=\"btn btn-info conf\">No</button></p>";
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);	
 }
 $('body').on('click','button.conf',function(){
-$('div.dettaglio , div.velo').remove();
+$('#myModal').modal('hide');
 artvisibile = false;
 });
 errore = 1;
@@ -690,26 +586,13 @@ $('a.del_comment').click(function(e){
 e.preventDefault();
 id_delete_comm  = $(this).attr('id');
 var errore = 0;
-$dettaglio.prependTo('body');
-$velo.prependTo('body');
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Vuoi Eliminare Questo Commento?</p><p class=\"text-right\"><button class=\"btn btn-default conf\">No</button>&nbsp;<button class=\"btn btn-default delcomment\">Si</button></p>";
+var testo = "<p>Vuoi Eliminare Questo Commento?</p><p class=\"text-right\"><button class=\"btn btn-info delcomment\">Si</button>&nbsp;<button class=\"btn btn-info conf\">No</button></p>";
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);		
 }
 $('body').on('click','button.conf',function(){
-$('div.dettaglio , div.velo').remove();
+$('#myModal').modal('hide');
 artvisibile = false;
 });
 errore = 1;
@@ -725,26 +608,13 @@ $('a.del_article').click(function(e){
 e.preventDefault();
 id_adelete_art = $(this).attr('id');
 var errore = 0;
-$dettaglio.prependTo('body');
-$velo.prependTo('body');
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Vuoi Eliminare Questo Articolo?</p><p class=\"text-right\"><button class=\"btn btn-default conf\">No</button>&nbsp;<button class=\"btn btn-default delarticle\">Si</button></p>";
+var testo = "<p>Vuoi Eliminare Questo Articolo?</p><p class=\"text-right\"><button class=\"btn btn-info delarticle\">Si</button>&nbsp;<button class=\"btn btn-info conf\">No</button></p>";
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);		
 }
 $('body').on('click','button.conf',function(){
-$('div.dettaglio , div.velo').remove();
+$('#myModal').modal('hide');
 artvisibile = false;
 });
 errore = 1;
@@ -758,26 +628,13 @@ $('a.del_cat').click(function(e){
 e.preventDefault();
 id_del_cat = $(this).attr('id');
 var errore = 0;
-$dettaglio.prependTo('body');
-$velo.prependTo('body');
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Vuoi Eliminare Questa Categoria?</p><p class=\"text-right\"><button class=\"btn btn-default conf\">No</button>&nbsp;<button class=\"btn btn-default delcat\">Si</button></p>";
+var testo = "<p>Vuoi Eliminare Questa Categoria?</p><p class=\"text-right\"><button class=\"btn btn-info delcat\">Si</button>&nbsp;<button class=\"btn btn-info conf\">No</button></p>";
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);		
 }
 $('body').on('click','button.conf',function(){
-$('div.dettaglio , div.velo').remove();
+$('#myModal').modal('hide');
 artvisibile = false;
 });
 errore = 1;
@@ -791,27 +648,13 @@ $('a.delete_v_menu').click(function(e){
 e.preventDefault();
 id_del_v_menu = $(this).attr('id');
 var errore = 0;
-
-$dettaglio.prependTo('body');
-$velo.prependTo('body');
-var h = ( $(window).height()-$('div.dettaglio').height() )/2;
-var w = ( $(window).width()-$('div.dettaglio').width() )/2;
-var testo = "<p>Vuoi Eliminare Questa Voce di Menù?</p><p class=\"text-right\"><button class=\"btn btn-default conf\">No</button>&nbsp;<button class=\"btn btn-default delvmenu\">Si</button></p>";
+var testo = "<p>Vuoi Eliminare Questa Voce di Menù?</p><p class=\"text-right\"><button class=\"btn btn-info delvmenu\">Si</button>&nbsp;<button class=\"btn btn-info conf\">No</button></p>";
 if(artvisibile==false){	
-$velo.css({
-'display':'block',
-'top':  $(document).scrollTop()+"px",
-'left': $(document).scrollLeft()+"px"
-});
-$dettaglio.css({
-'display':'block',
-'top': h+$(document).scrollTop()+"px",
-'left': w+$(document).scrollLeft()+"px"
-})
-.html(testo);	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);
 }
 $('body').on('click','button.conf',function(){
-$('div.dettaglio , div.velo').remove();
+$('#myModal').modal('hide');
 artvisibile = false;
 });
 errore = 1;
@@ -833,12 +676,13 @@ dataType:'html',
 
 beforeSend: function(){
 var testo = "<p>Attendere... <i class=\"fa fa-spinner fa-pulse\"></i></p>";
-$dettaglio.html(testo);
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);	
 },
 
 success: function(dati){
 setTimeout(function(){
-$dettaglio.html(dati); 
+$('#myModal div.modal-body').html(dati); 
 },2000);      
 }
 
@@ -860,12 +704,13 @@ dataType:'html',
 
 beforeSend: function(){
 var testo = "<p>Attendere... <i class=\"fa fa-spinner fa-pulse\"></i></p>";
-$dettaglio.html(testo);
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);	
 },
 
 success: function(dati){
 setTimeout(function(){
-$dettaglio.html(dati); 
+$('#myModal div.modal-body').html(dati); 
 },2000);      
 }
 
@@ -883,12 +728,12 @@ dataType:'html',
 
 beforeSend: function(){
 var testo = "<p>Attendere... <i class=\"fa fa-spinner fa-pulse\"></i></p>";
-$dettaglio.html(testo);
+$('#myModal div.modal-body').html(testo);	
 },
 
 success: function(dati){
 setTimeout(function(){
-$dettaglio.html(dati); 
+$('#myModal div.modal-body').html(dati); 
 },2000);      
 }
 
@@ -904,6 +749,7 @@ var idut = url.split("?");
 idut = idut[1].split("&");
 idut = idut[0].substring(5);
 
+
 $.ajax({ //ajax
 url:'../administrator/article/deleted_article.php?idart='+id_adelete_art+"&idut="+idut,
 type: 'GET',
@@ -911,12 +757,12 @@ dataType:'html',
 
 beforeSend: function(){
 var testo = "<p>Attendere... <i class=\"fa fa-spinner fa-pulse\"></i></p>";
-$dettaglio.html(testo);
+$('#myModal div.modal-body').html(testo);	
 },
 
 success: function(dati){
 setTimeout(function(){
-$dettaglio.html(dati); 
+$('#myModal div.modal-body').html(dati);	
 },2000);      
 }
 
@@ -937,12 +783,12 @@ dataType:'html',
 
 beforeSend: function(){
 var testo = "<p>Attendere... <i class=\"fa fa-spinner fa-pulse\"></i></p>";
-$dettaglio.html(testo);
+$('#myModal div.modal-body').html(testo);	
 },
 
 success: function(dati){
 setTimeout(function(){
-$dettaglio.html(dati); 
+$('#myModal div.modal-body').html(dati);
 },2000);      
 }
 
