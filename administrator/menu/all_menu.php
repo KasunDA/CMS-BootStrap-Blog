@@ -78,7 +78,7 @@ for($i=0;$i<$count_voci_menu;$i++){
 echo  "<form action=\"menu/modifica_menu.php?idut=".$cod_md5."&indvmenu=".$i."\" class=\"form-inline modificevoce\" method=\"post\" id=\"mod_menu_".$i."\">      
        <span><input type=\"text\" name=\"vocemenu\" value=\"".$voci_menu[$i]."\" id=\"voce\"> 
        <label><b><em>url voce >></em></b>
-	   <input type=\"text\" name=\"urlvoce\" value=\"".$urlvoci_menu[$i]."\" id=\"url\"> 
+	   <input type=\"text\" name=\"urlvoce\" value=\"".$urlvoci_menu[$i]."\" id=\"url\" readonly=\"readonly\"> 
 	   </label></span>
 	   <div class=\"btn-group\" id=\"mod_menu_".$i."\">
 	   <a href=\"#myURL\" data-toggle=\"modal\" class=\"btn btn-inverse  btn-small cambiaurl\" id=\"".$i."\">
@@ -152,7 +152,7 @@ if( isset($_GET['v_menu']) && $_GET['v_menu']=="exist"){echo $vmenuexist;}
 <form method="post" id="aggiungivoce" class="modificevoce" action="menu/nuovavoce.php?idut=<?php echo $cod_md5;?>&menu=<?php echo $menu;?>">
 <span>
 <p><input type="text" placeholder="Nome Voce" name="newvoce" value="" id="voce"></p>
-<p><input type="text" placeholder="Nome URL" id="url" name="newurlvoce" value=""></p>
+<p><input type="text" placeholder="Nome URL" id="url" name="newurlvoce" value="" readonly="readonly"></p>
 </span>
 <p><a href="#addVoice" data-toggle="modal" class="btn btn-inverse btn-mini">Scegli URl da elenco</a></p>
 <p><a href="" class="btn btn-info btn-small resetadd">Annulla</a>
