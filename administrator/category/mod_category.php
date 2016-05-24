@@ -47,7 +47,7 @@ $meta_key = $rowcat['meta_key'];
 
 
 <hr>
-<form class="form-horizontal" action="category/modifica_cat.php?idut=<?php echo $idut; ?>&idcat=<?php echo $idcategoria; ?>" method="post">
+<form class="form-horizontal modcategoria" action="category/modifica_cat.php?idut=<?php echo $idut; ?>&idcat=<?php echo $idcategoria; ?>" method="post">
     
 <div class="control-group">
 <label class="control-label" for="Nome_Cat"><b>Nome Categoria: <i class="fa fa-info-circle" title="Il nome della categoria non puo' essere modificato, ma puoi crearne una nuova." id="iconinfo"></i></b></label>
@@ -150,10 +150,3 @@ Crea Categoria
 </div>
 </div>
 </div>
-
-
-
-
-
-
-

@@ -26,7 +26,7 @@ $rstruncatecat = @mysqli_query($myconn,$sqltruncatecat) or die( "Errore....".mys
 
 echo "<p>Categoria Eliminata</p>
       <p class=\"text-right\">
-	  <button class=\"btn btn-default conf reload \" style=\"font-size:12px;\">Chiudi</button>
+	  <button class=\"btn btn-info conf reload \" style=\"font-size:12px;\">Chiudi</button>
 	  </p>";
 
 
