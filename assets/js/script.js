@@ -470,7 +470,7 @@ success: function(dati){
 var aa = dati.split('|');
 var aazero = aa[0];
 var aauno = aa[1];
-var html = "<input type=\"text\" name=\"vocemenu\" value=\""+aazero+"\" id=\"voce\"> <label><b><em>url voce >> </em></b><input type=\"text\" name=\"urlvoce\" value=\""+aauno+"\" id=\"url\"></label> ";
+var html = "<input type=\"text\" name=\"vocemenu\" value=\""+aazero+"\" id=\"voce\"> <label><b><em>url voce >> </em></b><input type=\"text\" name=\"urlvoce\" value=\""+aauno+"\" id=\"url\" readonly=\"readonly\"></label> ";
 $('form#mod_menu_'+indice+' span').html(html);	        
 },
 }); //ajax  
@@ -479,7 +479,7 @@ $('form#mod_menu_'+indice+' span').html(html);
 
 $('a.resetadd').click(function(e){
 e.preventDefault();
-var html = "<p><input type=\"text\" placeholder=\"Nome Voce\" name=\"newvoce\" value=\"\" id=\"voce\"></p><p><input type=\"text\" placeholder=\"Nome URL\" name=\"newurlvoce\" value=\"\" id=\"url\"></p> ";
+var html = "<p><input type=\"text\" placeholder=\"Nome Voce\" name=\"newvoce\" value=\"\" id=\"voce\"></p><p><input type=\"text\" placeholder=\"Nome URL\" name=\"newurlvoce\" value=\"\" id=\"url\" readonly=\"readonly\"></p> ";
 $('form#aggiungivoce span').html(html);	
 });
 
