@@ -87,6 +87,10 @@ if( $st_themes=="attivo" ){
 
 <?php include( __ROOT__.'/administrator/footer/footer.php' );?>
 
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-body"></div> 
+</div>
+
 <script src="../assets/js/jquery.js"></script>
 <script src="../assets/js/jquery.easing.1.3.js"></script>
 <script src="../assets/js/bootstrap.js"></script>
