@@ -18,7 +18,7 @@ $rsdeluser = @mysqli_query($myconn,$deluser) or die( "Errore....".mysqli_error($
 
 echo "<p>Utente Eliminato</p>
       <p class=\"text-right\">
-	  <button class=\"btn btn-default conf reload\">Chiudi</button>
+	  <button class=\"btn btn-info conf reload\">Chiudi</button>
 	  </p>";
 
 
