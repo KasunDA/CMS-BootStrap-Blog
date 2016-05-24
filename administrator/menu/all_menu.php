@@ -81,7 +81,7 @@ echo  "<form action=\"menu/modifica_menu.php?idut=".$cod_md5."&indvmenu=".$i."\"
 	   <input type=\"text\" name=\"urlvoce\" value=\"".$urlvoci_menu[$i]."\" id=\"url\"> 
 	   </label></span>
 	   <div class=\"btn-group\" id=\"mod_menu_".$i."\">
-	   <a href=\"#myModal\" data-toggle=\"modal\" class=\"btn btn-inverse  btn-small cambiaurl\" id=\"".$i."\">
+	   <a href=\"#myURL\" data-toggle=\"modal\" class=\"btn btn-inverse  btn-small cambiaurl\" id=\"".$i."\">
 	   <i class=\"fa fa-list-alt\"></i> URL</a>
 	   <a href=\"menu/loadurl.php?i=".$i."\" class=\"btn btn-info btn-small reset\" id=\"reset_".$i."\">Annulla</a>
 	   <button type=\"submit\" class=\"btn btn-primary btn-small\">Salva</button> 
@@ -166,11 +166,7 @@ if( isset($_GET['v_menu']) && $_GET['v_menu']=="exist"){echo $vmenuexist;}
 </div>
 </div>
 
-
-
-
-
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="myURL" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Scegli tra gli articoli</h3>
@@ -183,8 +179,6 @@ if( isset($_GET['v_menu']) && $_GET['v_menu']=="exist"){echo $vmenuexist;}
     <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" id="changeurl">Cambia e Chiudi</button>
   </div>
 </div>
-
-
 
 <div id="addVoice" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
@@ -234,3 +228,4 @@ if( isset($_GET['v_menu']) && $_GET['v_menu']=="exist"){echo $vmenuexist;}
     <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true" id="newurl">Cambia e Chiudi</button>
   </div>
 </div>
+

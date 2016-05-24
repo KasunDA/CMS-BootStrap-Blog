@@ -21,7 +21,7 @@ $si = "si";
 if( $home==$si ){
 echo "<p>Non puoi Eliminare la <strong>Home Page</strong></p>
       <p class=\"text-right\">
-	  <button class=\"btn btn-default conf\" style=\"font-size:12px;\">Chiudi</button>
+	  <button class=\"btn btn-info conf\" style=\"font-size:12px;\">Chiudi</button>
 	  </p>";
 exit;	
 }
@@ -73,7 +73,7 @@ $rsdelvmenu = @mysqli_query($myconn,$delvmenu) or die( "Errore....".mysqli_error
 
 echo "<p>Voce di Menù Eliminata</p>
       <p class=\"text-right\">
-	  <button class=\"btn btn-default conf reload\">Chiudi</button>
+	  <button class=\"btn btn-info conf reload\">Chiudi</button>
 	  </p>";
 
 }
