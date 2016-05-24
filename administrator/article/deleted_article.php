@@ -49,7 +49,7 @@ $rsdelart = @mysqli_query($myconn,$delart) or die( "Errore....".mysqli_error($my
 
 echo "<p>Articolo Eliminato</p>
       <p class=\"text-right\">
-	  <button class=\"btn btn-default conf reload\" style=\"font-size:12px;\">Chiudi</button>
+	  <button class=\"btn btn-info conf reload\" style=\"font-size:12px;\">Chiudi</button>
 	  </p>";
 
 }
@@ -71,7 +71,7 @@ $rstruncate = @mysqli_query($myconn,$sqltruncate) or die( "Errore....".mysqli_er
 
 echo "<p>Articolo Eliminato</p>
       <p class=\"text-right\">
-	  <button class=\"btn btn-default conf reload\" style=\"font-size:12px;\">Chiudi</button>
+	  <button class=\"btn btn-info conf reload\" style=\"font-size:12px;\">Chiudi</button>
 	  </p>";
 }	
 
@@ -93,7 +93,7 @@ $rstruncate = @mysqli_query($myconn,$sqltruncate) or die( "Errore....".mysqli_er
 
 echo "<p>Articolo Eliminato</p>
       <p class=\"text-right\">
-	  <button class=\"btn btn-default conf reload\" style=\"font-size:12px;\">Chiudi</button>
+	  <button class=\"btn btn-info conf reload\" style=\"font-size:12px;\">Chiudi</button>
 	  </p>";
 	
 }
