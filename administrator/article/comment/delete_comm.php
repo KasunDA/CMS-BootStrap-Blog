@@ -21,7 +21,7 @@ $rstruncate_comm = @mysqli_query($myconn,$sqltruncate_comm) or die( "Errore...."
 }
 echo "<p>Commento Eliminato</p>
       <p class=\"text-right\">
-	  <button class=\"btn btn-default conf reload\" style=\"font-size:12px;\">Chiudi</button>
+	  <button class=\"btn btn-info conf reload\" style=\"font-size:12px;\">Chiudi</button>
 	  </p>";
 }
 ?>
