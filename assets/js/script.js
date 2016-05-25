@@ -149,10 +149,10 @@ var val = $(this).val();
 var id = $(this).attr('id');
 
 if(id=="Nome"){
-var regexp = /^[a-z]+[\ a-z]*$/;		
+var regexp = /^[a-zA-Z]+[\ a-zA-Z]*$/;		
 }
 if(id=="Cognome"){
-var regexp = /^[a-z]+[\ a-z]*$/;		
+var regexp = /^[a-zA-Z]+[\ a-zA-Z]*$/;		
 }
 if(id=="Username"){
 var regexp = /^[a-z0-9]+$/;		
