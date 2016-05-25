@@ -97,7 +97,7 @@ if( $st_themes=="attivo" ){
 <script src="../assets/js/bootstrap-datepicker.min.js"></script>
 <script src="../assets/js/bootstrap-datepicker.it-CH.min.js"></script>
 <script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
-<script>CKEDITOR.replace('contenuto');</script>
+<script>CKEDITOR.replace('contenuto', { contentsCss: [CKEDITOR.basePath + 'bootstrap.css', '../assert/css/bootstrap.css'], allowedContent: true });</script>
 <script src="../assets/js/script.js"></script>
 </body>
 </html>
