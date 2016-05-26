@@ -50,7 +50,7 @@ if( $st_themes=="attivo" ){
 ?>
 <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="../assets/css/bootstrap-datepicker.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../fontawesome/font-awesome/css/font-awesome.min.css">
 <link href="../assets/css/style.css" rel="stylesheet">
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -96,8 +96,15 @@ if( $st_themes=="attivo" ){
 <script src="../assets/js/bootstrap.js"></script>
 <script src="../assets/js/bootstrap-datepicker.min.js"></script>
 <script src="../assets/js/bootstrap-datepicker.it-CH.min.js"></script>
-<script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
-<script>CKEDITOR.replace('contenuto', { contentsCss: [CKEDITOR.basePath + 'bootstrap.css', '../assert/css/bootstrap.css'], allowedContent: true });</script>
+<script src="../ckeditor/ckeditor.js"></script>
+<script>CKEDITOR.replace('contenuto', { 
+                                        contentsCss: [CKEDITOR.basePath + 'bootstrap.css', '../assert/css/bootstrap.css'], 
+										allowedContent: true 
+										}
+						);
+CKEDITOR.dtd.$removeEmpty['i'] = false;
+</script>
+
 <script src="../assets/js/script.js"></script>
 </body>
 </html>
