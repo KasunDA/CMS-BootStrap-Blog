@@ -10,7 +10,7 @@ $rs_ult = @mysqli_query($myconn,$sql_ult) or die( "Errore....".mysqli_error($myc
 <li class="nav-header"><h6>Articoli&nbsp;&&nbsp;Categorie</h6></li>
 <li><a href="../administrator/?idut=<?php echo $cod_md5; ?>&new_article"><i class="fa fa-pencil-square"></i> Nuovo Articolo</a></li>
 <li><a href="../administrator/?idut=<?php echo $cod_md5; ?>&p_use=all_article"><i class="fa fa-file"></i> Articoli</a></li>
-<li><a href="../administrator/?idut=<?php echo $cod_md5?>&comment"><i class="fa fa-commenting-o"></i> Commenti</a></li>
+<li><a href="../administrator/?idut=<?php echo $cod_md5?>&comment"><i class="fa fa-comment" aria-hidden="true"></i> Commenti</a></li>
 <li><a href="../administrator/?idut=<?php echo $cod_md5; ?>&category=all"><i class="fa fa-folder-open-o"></i> Categorie</a></li>
 <li class="nav-header"><h6>Menù&nbsp;&&nbsp;Template</h6></li>
 <li><a href="../administrator/?idut=<?php echo $cod_md5; ?>&menu=top-menu"><i class="fa fa-list-ul"></i> Menù</a></li>
