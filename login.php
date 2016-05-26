@@ -17,7 +17,7 @@ setcookie($ncookie,$vcookie,$dcookie);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link href="assets/css/bootstrap.css" rel="stylesheet">   
      <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">	 
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> 
+   <link rel="stylesheet" href="../fontawesome/font-awesome/css/font-awesome.min.css">
     <style type="text/css">
       body {
         padding-top: 40px;
