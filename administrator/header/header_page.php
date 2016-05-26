@@ -145,7 +145,7 @@ echo "<i class=\"fa fa-cogs\"></i> <strong>Configurazione</strong>";
 
 if( isset($_GET['comment']) ){
 	
-echo "<i class=\"fa fa-commenting-o\"></i> <strong>Gestione Commenti</strong>";		
+echo "<i class=\"fa fa-comment\" aria-hidden=\"true\"></i> <strong>Gestione Commenti</strong>";		
 	
 }	
 
