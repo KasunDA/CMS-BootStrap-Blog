@@ -1,4 +1,8 @@
 <?php
+$art_rec = fopen("setting/art_rec.txt","r");
+$cat_art_rec = fgets($art_rec,1024) ;
+
+
 $sqlsetting = "SELECT * FROM config ";
 $rssetting = @mysqli_query($myconn,$sqlsetting) or die( "Errore....".mysqli_error($myconn) );
 while ( $rowsetting = mysqli_fetch_array($rssetting) ){
@@ -162,6 +166,49 @@ if( isset($_GET['analyticstracking'])  && $_GET['analyticstracking']=="_not"){ec
 </textarea>
 <p><a href="https://support.google.com/analytics/answer/1032385?hl=it" target="_blank">Genera ID monitoraggio</a></p>
 <button type="submit" class="btn btn-primary btn-small">Salva</button>
+</form>
+</td></tr>
+<tr><td>
+<label><i class="fa fa-file"></i> <b>Sezione " Recenti "</b></label>
+<p class="muted">Nel del front-end del sito c'è la sezione degli articoli recenti, puoi scegliere la categoria.</p>
+<p><em>Categoria attualmente in uso:</em></p>
+<form class="form-inline" id="art_rec">
+<select>
+<?php
+if($cat_art_rec=="all"){
+?>
+<option value="all" selected>-- Articoli di Tutte le Categorie--</option>
+<?php		
+}
+else{
+?>
+<option value="all">-- Articoli di Tutte le Categorie--</option>	
+<?php
+}
+?>
+
+<?php
+
+$qcat = "select * from categorie";
+$rcat = @mysqli_query($myconn,$qcat) or die( "Errore....".mysqli_error($myconn) );
+
+
+while($rowc = mysqli_fetch_array($rcat)){
+$n_cat = $rowc['nome_categoria'];  
+
+if($cat_art_rec==$n_cat){
+echo "<option value=\"".$n_cat."\" selected>-- ".ucwords($n_cat)." --</option>";
+}
+else{
+echo "<option value=\"".$n_cat."\">-- ".ucwords($n_cat)." --</option>";	
+}
+
+
+}
+
+
+?>
+</select>
 </form>
 </td></tr>
 
