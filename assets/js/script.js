@@ -368,6 +368,36 @@ $(location).attr( 'href',"/administrator/"+url);
 });
 
 
+
+/**/
+$('form#art_rec > select').change(function(){
+var val_option = $(this).val();
+var url =window.location.search;
+
+var idut = url.split("?");
+idut = idut[1].split("&");
+idut = idut[0].substring(5);
+
+var p_use = url.split("?");
+p_use = p_use[1].split("&");
+p_use = p_use[1].substring(6);
+
+
+$.ajax({ //ajax
+url:'../administrator/setting/change_cat_art_rec.php?cat_art_rec='+val_option,
+type: 'GET',
+dataType:'html',
+success: function(){
+$(location).attr( 'href',"/administrator/"+url);		        
+},
+}); //ajax  
+
+});
+
+/**/
+
+
+
 $('form#limcat > select').change(function(){
 var val_option = $(this).val();
 var url =window.location.search;
