@@ -80,7 +80,7 @@ echo " , <i class=\"fa fa-eye\"></i> (<b>".$numclick."</b>)";
 for( $i=0;$i<count($option_article);$i++ ){
 if( $option_article[$i]=="comment" ){
 $url_comm = NULL;	
-echo " , <i class=\"fa fa-commenting-o\"></i> (<a href=\"".url_comm($url_comm,$aliasarticle)."\" class=\"add_comm\"  data-toggle=\"tooltip\" title=\"Commenti\">".$num_tot_comment."</a>)";	
+echo " , <i class=\"fa fa-comment\"></i> (<a href=\"".url_comm($url_comm,$aliasarticle)."\" class=\"add_comm\"  data-toggle=\"tooltip\" title=\"Commenti\">".$num_tot_comment."</a>)";	
 }		
 }
 
