@@ -106,7 +106,14 @@ body{margin-bottom:180px;}
 }
 
 .borderRed{border: 1px solid red}
-.cookie_policy{position:fixed;bottom:-25px;}
+.cookie_policy{
+	position:fixed;
+        width:100%;
+       height:auto;
+       left:0px;
+	bottom:-25px;
+	
+}
 
 .mylike{color:green !important;}
 
