@@ -1,6 +1,6 @@
 <br>
 <a name="all_comm"></a>
-<h5>Commenti&nbsp;(<?php echo $num_tot_comment; ?>) - <a href="#add_comm">Scrivi&nbsp;un&nbsp;Commento&nbsp;<i class="fa fa-commenting-o"></i></a></h5> 
+<h5>Commenti&nbsp;(<?php echo $num_tot_comment; ?>) - <a href="#add_comm">Scrivi&nbsp;un&nbsp;Commento&nbsp;<i class="fa fa-comment"></i></a></h5> 
 <hr>
 <?php 
 if( $num_tot_comment==0 ){
