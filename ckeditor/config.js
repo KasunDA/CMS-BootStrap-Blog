@@ -37,10 +37,5 @@ CKEDITOR.editorConfig = function( config ) {
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 	
 	
-config.allowedContent = true;
-config.ProtectedTags = 'i' ;
-config.protectedSource.push( /<i[\s\S]*?\>/g ); //allows beginning <i> tag
-config.protectedSource.push( /<\/i[\s\S]*?\>/g ); //allows ending </i> tag
-
 
 };
