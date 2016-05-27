@@ -102,7 +102,6 @@ if( $st_themes=="attivo" ){
 										allowedContent: true 
 										}
 						);
-CKEDITOR.dtd.$removeEmpty['i'] = false;
 </script>
 
 <script src="../assets/js/script.js"></script>
