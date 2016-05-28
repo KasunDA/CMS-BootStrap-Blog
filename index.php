@@ -112,7 +112,7 @@ bottom:-18px;
 width:100%;
 height:auto;
 left:0px;
-	
+z-index:99999;	
 }
 
 .mylike{color:green !important;}
