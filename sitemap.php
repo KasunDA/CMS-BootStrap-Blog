@@ -61,5 +61,13 @@ echo "</url>";
 }
 }
 }
+echo "<url>
+  <loc>http://cmsbootstrapblog.altervista.org/</loc>
+</url>";
+
+echo "<url>
+  <loc>http://cmsbootstrapblog.altervista.org/?cookie-policy</loc>
+</url>";
+
 echo "</urlset>"
 ?>
