@@ -34,3 +34,9 @@ RewriteRule ^search/([^/]+)/([0-9]+)$ /?p_use=search&q=$1&p=$2 [L]
 RewriteEngine On
 RewriteBase /
 RewriteRule ^print/([^/]+)\.htm$ /print.php?print_art=$1 [L]
+
+###############
+RewriteEngine On
+RewriteBase /
+RewriteRule ^sitemap.xml ./sitemap.php [L,QSA]
+###############
