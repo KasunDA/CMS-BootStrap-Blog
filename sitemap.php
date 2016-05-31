@@ -32,7 +32,7 @@ $nome_archivio = arch($mese,$anno);
 $arraynome_archivio = explode(" ",$nome_archivio);
 $newnome_archivio = strtolower($arraynome_archivio[0])."-".$arraynome_archivio[1];
 if( $archiviato=="Si" ){
-$url_art_arch = "http://".$_SERVER['HTTP_HOST']."/archivie/".$newnome_archivio."/".$alias.".html";
+$url_art_arch = "http://".$_SERVER['HTTP_HOST']."/archivie/".$newnome_archivio."/".$alias.".htm";
 echo "<url>";
 echo "<loc>".$url_art_arch;
 echo "</loc>";
@@ -46,6 +46,7 @@ echo "<loc>".$url_art;
 echo "</loc>";
 echo "<lastmod>".$ult_mod."</lastmod>";
 echo "</url>";
+/*
 $art_cat =" SELECT * FROM categorie  WHERE nome_categoria = '$categoria'";
 $rs_art_cat = @mysqli_query($myconn,$art_cat) or die( "Errore....".mysqli_error($myconn) );
 while($row_art_cat  = mysqli_fetch_array( $rs_art_cat )){
@@ -57,16 +58,15 @@ echo "</loc>";
 echo "<lastmod>".$ult_mod."</lastmod>";
 echo "</url>";
 }
+*/
 }
 }
 }
 }
-echo "<url>
-  <loc>http://cmsbootstrapblog.altervista.org/</loc>
+echo "<url><loc>http://".$_SERVER['HTTP_HOST']."/</loc>
 </url>";
 
-echo "<url>
-  <loc>http://cmsbootstrapblog.altervista.org/?cookie-policy</loc>
+echo "<url><loc>http://".$_SERVER['HTTP_HOST']."/?cookie-policy</loc>
 </url>";
 
 echo "</urlset>"

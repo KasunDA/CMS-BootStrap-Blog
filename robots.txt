@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /administrator/
+Disallow: /images/
+Disallow: /ckeditor/
+Disallow: /assets/
+Disallow: /fontawesome/
+Disallow: /article/
+Disallow: /blog_title/
+Disallow: /footer/
+Disallow: /menu/
+Disallow: /meta_tag_blog/
+Disallow: /section_right/
+Disallow: /title_blog/
