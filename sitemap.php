@@ -46,19 +46,7 @@ echo "<loc>".$url_art;
 echo "</loc>";
 echo "<lastmod>".$ult_mod."</lastmod>";
 echo "</url>";
-/*
-$art_cat =" SELECT * FROM categorie  WHERE nome_categoria = '$categoria'";
-$rs_art_cat = @mysqli_query($myconn,$art_cat) or die( "Errore....".mysqli_error($myconn) );
-while($row_art_cat  = mysqli_fetch_array( $rs_art_cat )){
-$alias_categoria = $row_art_cat['alias_categoria'];
-$url_art_cat = "http://".$_SERVER['HTTP_HOST']."/".$alias_categoria."/".$alias.".html";
-echo "<url>";
-echo "<loc>".$url_art_cat;
-echo "</loc>";
-echo "<lastmod>".$ult_mod."</lastmod>";
-echo "</url>";
-}
-*/
+
 }
 }
 }
