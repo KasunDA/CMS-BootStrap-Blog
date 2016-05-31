@@ -1,8 +1,11 @@
 User-agent: *
+Disallow: 
+
+User-agent: *
 Disallow: /administrator/
+Disallow: /assets/
 Disallow: /images/
 Disallow: /ckeditor/
-Disallow: /assets/
 Disallow: /fontawesome/
 Disallow: /article/
 Disallow: /blog_title/
@@ -11,3 +14,13 @@ Disallow: /menu/
 Disallow: /meta_tag_blog/
 Disallow: /section_right/
 Disallow: /title_blog/
+Disallow: /contatori.php
+Disallow: /control_login.php
+Disallow: /form_rec.php
+Disallow: /lib.php
+Disallow: /logaut.php
+Disallow: /login.php
+Disallow: /rec_login.php
+Disallow: /unlink_inst.php
+
+Sitemap: http://www.sitename.it/sitemap.xml
