@@ -26,9 +26,13 @@ $cookie_policy = $rowsetting['cookie_policy'];
 ?>
 <div class="row-fluid">
 <div class="span12">
-<ul class="nav nav-tabs">
-<li><a href="#setting" data-toggle="tab"><b>Personalizza le Sezioni</b></a></li>
+<ul class="nav nav-tabs" id="mySetting">
+<li class="active"><a href="#setting" data-toggle="tab"><b>Personalizza le Sezioni</b></a></li>
 <li><a href="#cookie_policy" data-toggle="tab"><b>Cookie Policy</b></a></li>
+<li><a href="#analityc" data-toggle="tab"><b>Google Analitycs</b></a></li>
+<li><a href="#robots" data-toggle="tab"><b>robots.txt</b></a></li>
+<li><a href="#sitemap" data-toggle="tab"><b>sitemap.xml</b></a></li>
+
 </ul>
 
 </div>
@@ -159,16 +163,6 @@ if( isset($_GET['analyticstracking'])  && $_GET['analyticstracking']=="_not"){ec
 <table class="table table-bordered table-striped table-hover">
 <tr class="info"><td><b>Altre Opzioni</b></td></tr>
 <tr><td>
-<form method="post" action="setting/codice_analytics.php?idut=<?php echo $cod_md5; ?>">
-<label><i class="fa fa-area-chart"></i> Google Analitycs (ID monitoraggio):</label>
-<textarea class="span12" placeholder="Incolla qui il tuo ID monitoraggio, es UA-11111111-1" name="analytics">
-<?php echo $gooanaly;?>
-</textarea>
-<p><a href="https://support.google.com/analytics/answer/1032385?hl=it" target="_blank">Genera ID monitoraggio</a></p>
-<button type="submit" class="btn btn-primary btn-small">Salva</button>
-</form>
-</td></tr>
-<tr><td>
 <label><i class="fa fa-file"></i> <b>Sezione " Recenti "</b></label>
 <p class="muted">Nel del front-end del sito c'è la sezione degli articoli recenti, puoi scegliere la categoria.</p>
 <p><em>Categoria attualmente in uso:</em></p>
@@ -247,6 +241,96 @@ cookie policy.
 
 
 </div>
+
+<div class="tab-pane" id="analityc">
+<div class="row-fluid">
+<div class="span10">
+<form method="post" action="setting/codice_analytics.php?idut=<?php echo $cod_md5; ?>">
+<label><i class="fa fa-area-chart"></i> Google Analitycs (ID monitoraggio):</label>
+<textarea class="span6" rows="1"  placeholder="Incolla qui il tuo ID monitoraggio, es UA-11111111-1" name="analytics">
+<?php echo $gooanaly;?>
+</textarea>
+<p><a href="https://support.google.com/analytics/answer/1032385?hl=it" target="_blank">Genera ID monitoraggio</a></p>
+<button type="submit" class="btn btn-primary btn-small">Salva</button>
+</form>
+</div>
+</div>
+</div>
+
+<div class="tab-pane" id="robots">
+<div class="row-fluid">
+<div class="span10">
+<div class="alert alert-success">
+<em>Il file <strong>robots.txt</strong> é un file di testo memorizzato nella directory principale del sito e indica quali parti di tale sito 
+non sono accessibili ai crawler dei motori di ricerca. Il file utilizza il <a href="https://support.google.com/webmasters/answer/6062608?hl=it" target="_blank">protocollo di esclusione robot</a>, un protocollo con un piccolo insieme di comandi che puoi 
+utilizzare per indicare l'accesso al sito in base alla sezione e a specifici tipi di crawler web (come i crawler dei dispositivi mobili o quelli dei computer desktop).
+</em>
+</div>
+<hr>
+<form method="post" action="setting/mod_robots.php?idut=<?php echo $cod_md5; ?>">
+<fieldset>
+<legend>Modifica robots.txt</legend>
+<textarea rows="20" class="span12" name="roob">
+<?php  include(__ROOT__.'/robots.txt'); ?>
+</textarea>
+<p><input type="submit"  class="btn btn-primary" value="Salva"></p>
+</fieldset>
+</form>
+</div>
+</div>
+</div>
+
+
+
+<div class="tab-pane" id="sitemap">
+<div class="row-fluid">
+<div class="span10">
+<div class="alert alert-success">
+<em>Il file <strong>sitemap.xml</strong> é un file dove vengono memorizzati tutti i link delle pagine web del sito, tale file viene aggiornato automaticamente.
+Il file è accessibile dal seguente link <a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/sitemap.xml" ; ?>" target="_blank"><?php echo "http://".$_SERVER['HTTP_HOST']."/sitemap.xml" ; ?></a>.
+</em>
+</div>
+<hr>
+    <ol>
+      <li><a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/" ; ?>" target="_blank"><?php echo "http://".$_SERVER['HTTP_HOST']."/" ; ?></a></li>
+	  <li><a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/?cookie-policy"; ?>" target="_blank"><?php echo "http://".$_SERVER['HTTP_HOST']."/?cookie-policy"; ?></a></li>
+      <?php
+	  $sqlart = "SELECT * FROM articoli WHERE visibility = \"Si\"";
+     $rs_sqlart = @mysqli_query($myconn,$sqlart) or die( "Errore....".mysqli_error($myconn) );
+     $num_art= $rs_sqlart->num_rows;
+	 while($row_art  = mysqli_fetch_array( $rs_sqlart)){	
+$alias = $row_art['alias'];
+$categoria = $row_art['categoria'];
+$archiviato = $row_art['archiviato'];
+$cestinato = $row_art['cestinato'];
+$ult_mod = $row_art['ult_mod'];
+$datacreate = $row_art['datacreate'];
+
+$arraydata = explode("-",$datacreate);
+$mese = $arraydata[1];$anno = $arraydata[0];
+$nome_archivio = arch($mese,$anno);
+$arraynome_archivio = explode(" ",$nome_archivio);
+$newnome_archivio = strtolower($arraynome_archivio[0])."-".$arraynome_archivio[1];
+if( $archiviato=="Si" ){
+$url_art_arch = "http://".$_SERVER['HTTP_HOST']."/archivie/".$newnome_archivio."/".$alias.".htm";
+echo "<li><a href=\"".$url_art_arch."\" target=\"_blank\">".$url_art_arch."</a></li>";
+}
+else{
+
+$url_art = "http://".$_SERVER['HTTP_HOST']."/".$alias.".html";
+echo "<li><a href=\"".$url_art."\" target=\"_blank\">".$url_art."</a></li>";
+
+}
+}
+	  
+?>
+</ol>
+
+
+</div>
+</div>
+</div>
+
 </div>
 
 
