@@ -28,13 +28,13 @@ $array_art_like[$i] =  "<li><a href=\"".$array_art[1]."\">".ucwords($titart)."</
 
 }
 
-
 array_unique($array_art_like);
 for( $i=0;$i<count($array_art_like);$i++ ){
 echo $array_art_like[$i];	
-}
 
-	
 }
 echo "</ol>";
+	
+}
+
 ?>
