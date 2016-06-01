@@ -2,9 +2,9 @@
 if( $num_art_vis_no_arch==0 && !( isset($_GET['p_use']) &&  $_GET['p_use']=="archivie") ){
 if(!isset($_GET['cookie-policy'])){
 ?>
-<div class="row">
-<div class="span7">
-<div class="blog-post span12">
+<div class="row-fluid">
+<div class="span12">
+<div class="blog-post">
 <p class="lead">Nessun Articolo</p>
 </div>  
 </div>
