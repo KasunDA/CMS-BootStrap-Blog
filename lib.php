@@ -225,7 +225,7 @@ return $datacreate;
 };
 
 function cont_article ($cont_article,$alias_article) {
-$arraycont_article = explode(" ",$cont_article);
+$arraycont_article = explode(" ", strip_tags($cont_article,"<img><p>")  );
 $arraynewcont_article = array();	
 	
 if( count($arraycont_article)>80 ){
@@ -233,7 +233,7 @@ for( $i=0;$i<=80;$i++ ){
 $arraynewcont_article[$i]=$arraycont_article[$i];	
 }
 if( !isset($_GET['p_use']) ){
-$arraynewcont_article[80] = strip_tags($arraynewcont_article[80]);	
+
 $arraynewcont_article[81]="[...]<p><ul class=\"inline\"><li><a href=\"/article/go.php?p_use=".$alias_article."\">Continua a leggere..</a></li></ul></p>";
 }
 else{
@@ -255,14 +255,14 @@ return $newcont_article;
 };
 
 function cont_article_arch ($cont_article) {
-$arraycont_article = explode(" ",$cont_article);
+$arraycont_article = explode(" ",strip_tags($cont_article,"<p>"));
 $arraynewcont_article = array();	
 	
-if( count($arraycont_article)>20 ){
-for( $i=0;$i<=20;$i++ ){	
+if( count($arraycont_article)>40 ){
+for( $i=0;$i<=40;$i++ ){	
 $arraynewcont_article[$i]=$arraycont_article[$i];	
 }
-$arraynewcont_article[21]=" [.....]";
+$arraynewcont_article[41]=" [.....]";
 $newcont_article =  implode(" ",$arraynewcont_article);
 return $newcont_article;
 		
