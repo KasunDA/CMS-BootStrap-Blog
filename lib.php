@@ -226,20 +226,38 @@ return $datacreate;
 
 function cont_article ($cont_article,$alias_article) {
 $arraycont_article = explode(" ", strip_tags($cont_article,"<img><p>")  );
+$arraycont_article = preg_replace('/class=".*?"/', '', $arraycont_article );
 $arraynewcont_article = array();	
 	
 if( count($arraycont_article)>80 ){
 for( $i=0;$i<=80;$i++ ){	
 $arraynewcont_article[$i]=$arraycont_article[$i];	
 }
-if( !isset($_GET['p_use']) ){
 
+$cont_article =  implode(" ",$arraynewcont_article);
+$p_open = substr_count($cont_article , "<p>");
+$p_open_s = substr_count($cont_article , "<p >");
+
+$p_closed = substr_count( $cont_article, "</p>");
+$diff = ($p_open+$p_open_s)-$p_closed;
+
+
+if( !isset($_GET['p_use']) ){
+if( $diff==0 ){
+$arraynewcont_article[81]="[...]<div class=\"row-fluid\"><div class=\"span12\"><ul class=\"inline\"><li><a href=\"/article/go.php?p_use=".$alias_article."\">Continua a leggere..</a></li></ul></div></div>";
+}
+else{
 $arraynewcont_article[81]="[...]</p><div class=\"row-fluid\"><div class=\"span12\"><ul class=\"inline\"><li><a href=\"/article/go.php?p_use=".$alias_article."\">Continua a leggere..</a></li></ul></div></div>";
+}
 }
 else{
 $p_use = $_GET['p_use'];
+if( $diff==0 ){
+$arraynewcont_article[81]="[...]<div class=\"row-fluid\"><div class=\"span12\"><ul class=\"inline\"><li><a href=\"/article/go.php?p_use=".$p_use."&alias_art=".$alias_article."\">Continua a leggere..</a></li></ul></div></div>";
+}
+else{
 $arraynewcont_article[81]="[...]</p><div class=\"row-fluid\"><div class=\"span12\"><ul class=\"inline\"><li><a href=\"/article/go.php?p_use=".$p_use."&alias_art=".$alias_article."\">Continua a leggere..</a></li></ul></div></div>";
-	
+}	
 }
 $newcont_article =  implode(" ",$arraynewcont_article);
 return $newcont_article;
