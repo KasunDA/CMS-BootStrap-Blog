@@ -234,11 +234,11 @@ $arraynewcont_article[$i]=$arraycont_article[$i];
 }
 if( !isset($_GET['p_use']) ){
 
-$arraynewcont_article[81]="[...]<p><ul class=\"inline\"><li><a href=\"/article/go.php?p_use=".$alias_article."\">Continua a leggere..</a></li></ul></p>";
+$arraynewcont_article[81]="[...]</p><div class=\"row-fluid\"><div class=\"span12\"><ul class=\"inline\"><li><a href=\"/article/go.php?p_use=".$alias_article."\">Continua a leggere..</a></li></ul></div></div>";
 }
 else{
 $p_use = $_GET['p_use'];
-$arraynewcont_article[81]="[...]<p><ul class=\"inline\"><li><a href=\"/article/go.php?p_use=".$p_use."&alias_art=".$alias_article."\">Continua a leggere..</a></li></ul></p>";
+$arraynewcont_article[81]="[...]</p><div class=\"row-fluid\"><div class=\"span12\"><ul class=\"inline\"><li><a href=\"/article/go.php?p_use=".$p_use."&alias_art=".$alias_article."\">Continua a leggere..</a></li></ul></div></div>";
 	
 }
 $newcont_article =  implode(" ",$arraynewcont_article);
