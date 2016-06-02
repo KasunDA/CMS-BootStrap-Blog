@@ -274,13 +274,28 @@ return $newcont_article;
 
 function cont_article_arch ($cont_article) {
 $arraycont_article = explode(" ",strip_tags($cont_article,"<p>"));
-$arraynewcont_article = array();	
+$arraycont_article = preg_replace('/class=".*?"/', '', $arraycont_article );
+$arraynewcont_article = array();
 	
 if( count($arraycont_article)>40 ){
+
 for( $i=0;$i<=40;$i++ ){	
 $arraynewcont_article[$i]=$arraycont_article[$i];	
 }
-$arraynewcont_article[41]=" [.....]";
+
+$cont_article =  implode(" ",$arraynewcont_article);
+$p_open = substr_count($cont_article , "<p>");
+$p_open_s = substr_count($cont_article , "<p >");
+$p_closed = substr_count( $cont_article, "</p>");
+$diff = ($p_open+$p_open_s)-$p_closed;
+
+if( $diff==0 ){
+$arraynewcont_article[41]=" [.....]";	
+}
+else{
+$arraynewcont_article[41]=" [.....]</p>";		
+}
+
 $newcont_article =  implode(" ",$arraynewcont_article);
 return $newcont_article;
 		
