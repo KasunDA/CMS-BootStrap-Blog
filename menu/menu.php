@@ -1,7 +1,7 @@
 <?php
 $logo = html_entity_decode($rowsetting['logo_blog']);
 ?>
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
 <span id="test_cook"></span>
 <div class="navbar-inner">
 <div class="container">
