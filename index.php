@@ -65,7 +65,7 @@ if( $st_themes=="attivo" ){
 <link href="/assets/css/bootstrap-responsive.css" rel="stylesheet">
 <link rel="stylesheet" href="../fontawesome/font-awesome/css/font-awesome.min.css">
 <style>
-body{margin-bottom:220px;}
+body{margin-bottom:280px;}
  
 @media (min-width: 600px) {
   .blog-cont{margin-top:100px;}
@@ -108,7 +108,7 @@ body{margin-bottom:220px;}
 .borderRed{border: 1px solid red}
 .cookie_policy{
 position:fixed;
-bottom:-18px;
+bottom:-25px;
 width:100%;
 height:auto;
 left:0px;
