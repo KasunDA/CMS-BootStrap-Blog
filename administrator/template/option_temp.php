@@ -1,7 +1,106 @@
+<div class="row-fluid">
+<div class="span12">
+<?php
+if( isset($_GET['theme']) && $_GET['theme']=="_not_file" ){
+?>
+<div class="alert">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-info-circle" aria-hidden="true"></i> Nessun file selezionato...</strong> .
+</div>
+<?php	
+}
+if( isset($_GET['theme']) && $_GET['theme']=="_exist_file" ){
+?>
+<div class="alert alert-info">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-info-circle" aria-hidden="true"></i> Esiste già un tema con lo stesso nome.!</strong> .
+</div>
+<?php	
+}
+if( isset($_GET['theme']) && $_GET['theme']=="_extract" ){
+?>
+<div class="alert alert-success">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-check" aria-hidden="true"></i> Nuovo tema installato con successo.</strong> .
+</div>
+
+<?php	
+}
+if( isset($_GET['theme']) && $_GET['theme']=="_not_extension" ){
+?>
+<div class="alert alert-error">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Il file ha un estensione non ammessa!</strong> .
+</div>
+<?php
+}
+if( isset($_GET['theme']) && $_GET['theme']=="_error" ){
+?>
+<div class="alert alert-error">
+<button type="button" class="close" data-dismiss="alert">&times;</button>
+<strong><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Tema non valido!</strong> .
+</div>
+
+<?php	
+}
+?>
+<form  action="../administrator/template/extract.php?idut=<?php echo $cod_md5; ?>" method="post" enctype="multipart/form-data" class="form-inline" id="">
+<fieldset>
+<legend>Installa&nbsp;Nuovo&nbsp;Tema (<em>&nbsp;Scarica&nbsp;<a href>Nuovi</a>&nbsp;Temi&nbsp;</em>)</legend>
+<input name="userfile" type="file">
+<input type="submit" value="Installa" class="btn btn-info">
+
+</fieldset>
+</form>
+<hr>
+</div>
+</div>
 
 <div class="row-fluid">
 <div class="span12">
-<div class="span9">
+
+<div class="span2">
+<?php
+$checked_all=NULL;
+$checked_fend=NULL;
+$checked_bend=NULL;
+if(!isset($_GET['t_themes'])){
+$checked_all="checked";
+}
+elseif( isset($_GET['t_themes']) && $_GET['t_themes']=="front-end" ){
+$checked_fend="checked";	
+}
+elseif( isset($_GET['t_themes']) && $_GET['t_themes']=="back-end" ){
+$checked_bend="checked";	
+}
+
+?>
+<div class="table-responsive filter_temi">
+<table class="table table-bordered table-striped table-hover">
+<tr class="info">
+<td><b><i class="fa fa-filter"></i> Filtri</b></td></tr>
+<tr><td>
+<label class="checkbox">
+<input type="checkbox" <?php echo $checked_all; ?> id="all_themes"> <b>Tutti i Temi</b>
+</label>
+</td></tr>
+<tr><td>
+<label class="checkbox">
+<input type="checkbox" <?php echo $checked_fend; ?> id="front-end"> <b>Sito</b>
+</label>
+</td></tr>
+<tr><td>
+<label class="checkbox">
+<input type="checkbox" <?php echo $checked_bend; ?> id="back-end"> <b>Amministrazione</b>
+</label>
+</td></tr>
+
+
+</table>
+</div>
+</div>
+
+<div class="span10">
 
 <div class="table-responsive">
 <table class="table table-bordered table-striped table-hover">
@@ -11,7 +110,7 @@
 <td><b>Anteprima</b></td>
 <td><b>Tipo</b></td>
 <td><b>Stato</b></td>
-<td><b>Autore</b></td>
+<td><b>Versione</b></td>
 
 </tr>
 
@@ -43,8 +142,8 @@ $st_themes = $rowthemes['st_themes'];
 
 echo "<tr>";
 echo "<td>".$id_themes."</td>";
-echo "<td><a href=\"https://bootswatch.com/2/".$name_themes."\" target=\"_blank\">".ucfirst($name_themes)."</a></td>";
-echo "<td><img src=\"https://bootswatch.com/2/".$name_themes."/thumbnail.png\" class=\"img-polaroid anteprima\"></td>";
+echo "<td>".ucfirst($name_themes)."</td>";
+echo "<td><img src=\"../../assets/css/temi/".$name_themes."/thumbnail.png\" class=\"img-polaroid anteprima\"></td>";
 
 echo "<td><a href=\"../administrator/?idut=".$cod_md5."&template=all_themes&t_themes=".strtolower($tipo_themes)."\">".strtoupper($tipo_themes)."</a></td>";
 
@@ -61,7 +160,7 @@ echo "<td><a href=\"template/attiva_themes.php?idut=".$cod_md5."&theme=".$name_t
 	
 }
 }
-echo "<td><a href=\"https://bootswatch.com/2/\" target=\"_blank\">Bootswatch</a></td>";
+echo "<td><a href=\"http://getbootstrap.com/2.3.2/\" target=\"_blank\">Bootstrap 2</a></td>";
 
 echo "</tr>";
 	
@@ -81,48 +180,7 @@ echo "</tr>";
  
 </div>
 
-<div class="span3">
-<?php
-$checked_all=NULL;
-$checked_fend=NULL;
-$checked_bend=NULL;
-if(!isset($_GET['t_themes'])){
-$checked_all="checked";
-}
-elseif( isset($_GET['t_themes']) && $_GET['t_themes']=="front-end" ){
-$checked_fend="checked";	
-}
-elseif( isset($_GET['t_themes']) && $_GET['t_themes']=="back-end" ){
-$checked_bend="checked";	
-}
 
-?>
-<div class="table-responsive filter_temi">
-<table class="table table-bordered table-striped table-hover">
-<tr class="info">
-<td><b><i class="fa fa-filter"></i> Filtri</b></td></tr>
-<tr><td>
-<label class="checkbox">
-<input type="checkbox" <?php echo $checked_all; ?> id="all_themes"> <b>Tutti i Temi</b>
-</label>
-</td></tr>
-<tr><td>
-<label class="checkbox">
-<input type="checkbox" <?php echo $checked_fend; ?> id="front-end"> <b>Sito (Front-End)</b>
-</label>
-</td></tr>
-<tr><td>
-<label class="checkbox">
-<input type="checkbox" <?php echo $checked_bend; ?> id="back-end"> <b>Amministrazione (Back-End)</b>
-</label>
-</td></tr>
-
-
-</table>
-</div>
-
-
-</div>
 
 </div>
 
