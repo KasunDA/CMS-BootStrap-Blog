@@ -33,9 +33,18 @@ header("Location: /");
 exit;
 }
 
-$sql_art_vis_no_arch_p = " SELECT * FROM articoli WHERE visibility = \"Si\" AND archiviato = \"No\" ORDER BY datacreate DESC LIMIT ".$first." , ".$view_art ;
-$rs_sql_art_vis_no_arch_p = @mysqli_query($myconn,$sql_art_vis_no_arch_p) or die( "Errore....".mysqli_error($myconn) );
+$art_rec = fopen("administrator/setting/art_rec.txt","r");
+$cat_art_rec = fgets($art_rec,1024) ;
 
+if($cat_art_rec == "all"){
+$sql_art_vis_no_arch_p = " SELECT * FROM articoli WHERE visibility = \"Si\" AND archiviato = \"No\" ORDER BY datacreate DESC LIMIT ".$first." , ".$view_art ;
+}
+else{
+$sql_art_vis_no_arch_p = " SELECT * FROM articoli WHERE visibility = \"Si\" AND archiviato = \"No\" AND categoria = \"$cat_art_rec\" ORDER BY datacreate DESC LIMIT ".$first." , ".$view_art ;
+	
+}
+
+$rs_sql_art_vis_no_arch_p = @mysqli_query($myconn,$sql_art_vis_no_arch_p) or die( "Errore....".mysqli_error($myconn) );
 
 
 ?>
