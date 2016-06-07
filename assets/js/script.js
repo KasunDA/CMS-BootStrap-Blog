@@ -589,6 +589,7 @@ var id_adelete_art = null;
 var id_del_cat = null;
 var id_del_v_menu = null;
 var id_delete_comm = null;
+var id_del_temp = null;
 
 /* a.delete_user */
 $('a.delete_user').click(function(e){
@@ -691,6 +692,59 @@ errore = 1;
 artvisibile=true;
 });
 /* a.delete_v_menu */
+
+/* a.remive_temp */
+$('a.remove_temp').click(function(e){
+e.preventDefault();
+id_del_temp = $(this).attr('id');
+var errore = 0;
+var testo = "<p>Vuoi Eliminare Questo Tema?</p><p class=\"text-right\"><button class=\"btn btn-info deltemp\">Si</button>&nbsp;<button class=\"btn btn-info conf\">No</button></p>";
+if(artvisibile==false){	
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);
+}
+$('body').on('click','button.conf',function(){
+$('#myModal').modal('hide');
+artvisibile = false;
+});
+errore = 1;
+artvisibile=true;
+});
+
+/* a.remive_temp */
+
+
+
+$('body').on('click','button.deltemp',function(){
+var url =window.location.search;
+var idut = url.split("?");
+idut = idut[1].split("&");
+idut = idut[0].substring(5);
+
+$.ajax({ //ajax
+url:'../administrator/template/remove_temp.php?theme='+id_del_temp+"&idut="+idut,
+type: 'GET',
+dataType:'html',
+
+beforeSend: function(){
+var testo = "<p>Attendere... <i class=\"fa fa-spinner fa-pulse\"></i></p>";
+$('#myModal').modal( { backdrop : 'static' , show: true } );
+$('#myModal div.modal-body').html(testo);	
+},
+
+success: function(dati){
+setTimeout(function(){
+$('#myModal div.modal-body').html(dati); 
+},2000);      
+}
+
+}); //ajax  
+});
+
+
+
+
+
 
 
 $('body').on('click','button.delvmenu',function(){
