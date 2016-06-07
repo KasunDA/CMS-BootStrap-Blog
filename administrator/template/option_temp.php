@@ -46,7 +46,7 @@ if( isset($_GET['theme']) && $_GET['theme']=="_error" ){
 ?>
 <form  action="../administrator/template/extract.php?idut=<?php echo $cod_md5; ?>" method="post" enctype="multipart/form-data" class="form-inline" id="">
 <fieldset>
-<legend>Installa&nbsp;Nuovo&nbsp;Tema (<em>Scarica&nbsp;<a href="http://cmsbootstrapblog.altervista.org/temi.html" target="_blank">Nuovi</a>&nbsp;Temi</em>)</legend>
+<legend>Installa&nbsp;Nuovo&nbsp;Tema (<em>&nbsp;Scarica&nbsp;<a href>Nuovi</a>&nbsp;Temi&nbsp;</em>)</legend>
 <input name="userfile" type="file">
 <input type="submit" value="Installa" class="btn btn-info">
 
@@ -110,6 +110,7 @@ $checked_bend="checked";
 <td><b>Anteprima</b></td>
 <td><b>Tipo</b></td>
 <td><b>Stato</b></td>
+<td><b>Elimina</b></td>
 <td><b>Versione</b></td>
 
 </tr>
@@ -160,8 +161,8 @@ echo "<td><a href=\"template/attiva_themes.php?idut=".$cod_md5."&theme=".$name_t
 	
 }
 }
+echo "<td><a href=\"\" class=\"btn btn-danger btn-small remove_temp\" id=\"".$name_themes."\"><i class=\"fa fa-trash-o\" aria-hidden=\"true\"></i></td>";
 echo "<td><a href=\"http://getbootstrap.com/2.3.2/\" target=\"_blank\">Bootstrap 2</a></td>";
-
 echo "</tr>";
 	
 }
