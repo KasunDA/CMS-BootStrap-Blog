@@ -46,7 +46,7 @@ if( isset($_GET['theme']) && $_GET['theme']=="_error" ){
 ?>
 <form  action="../administrator/template/extract.php?idut=<?php echo $cod_md5; ?>" method="post" enctype="multipart/form-data" class="form-inline" id="">
 <fieldset>
-<legend>Installa&nbsp;Nuovo&nbsp;Tema (<em>&nbsp;Scarica&nbsp;<a href>Nuovi</a>&nbsp;Temi&nbsp;</em>)</legend>
+<legend>Installa&nbsp;Nuovo&nbsp;Tema (<em>Scarica&nbsp;<a href="http://cmsbootstrapblog.altervista.org/temi.html" target="_blank">Nuovi</a>&nbsp;Temi</em>)</legend>
 <input name="userfile" type="file">
 <input type="submit" value="Installa" class="btn btn-info">
 
