@@ -1,5 +1,5 @@
 <?php
-$logo = html_entity_decode($rowsetting['logo_blog']);
+$logo = html_entity_decode($rowsetting['logo_blog'], ENT_QUOTES, "UTF-8");
 ?>
 <div class="navbar navbar-fixed-top">
 <span id="test_cook"></span>
