@@ -10,7 +10,7 @@ if( isset($_GET['idart']) ){
 $idart= $_GET['idart'];
 $nome = $_POST['Nome'];
 $email = $_POST['EMail'];
-$testo = htmlentities(addslashes($_POST['Testo']));
+$testo = htmlentities(addslashes($_POST['Testo']),ENT_QUOTES, "UTF-8");
 $data_ora = date("d/m/Y - H:i:s");
 $disabled = "disabled";
 
