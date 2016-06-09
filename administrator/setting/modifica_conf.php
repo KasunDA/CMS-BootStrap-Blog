@@ -7,21 +7,20 @@ $myconn = @mysqli_connect(DB_HOST,DB_USER,DB_PSW,DB_NAME) or die("Errore Conness
 
 if( isset($_GET['idut']) ){
 $idut = $_GET['idut'];	
-$logo_blog = htmlentities(addslashes($_POST['logoblog']));
-$nameblog = addslashes($_POST['nameblog']);
-$titleblog = addslashes($_POST['titleblog']);
-$sttitleblog = addslashes($_POST['sttitleblog']);
-$sectionabaut = addslashes($_POST['sectionabaut']);
-$sectionmetadesc = addslashes( $_POST['sectionmetadesc']) ;
-$sectionmetakey= addslashes( $_POST['sectionmetakey']) ;
+$logo_blog = htmlentities( addslashes($_POST['logoblog']), ENT_QUOTES, "UTF-8" ) ;
+$nameblog = htmlentities( addslashes($_POST['nameblog']), ENT_QUOTES, "UTF-8" );
+$titleblog = htmlentities( addslashes($_POST['titleblog']), ENT_QUOTES, "UTF-8" );
+$sttitleblog = htmlentities( addslashes($_POST['sttitleblog']), ENT_QUOTES, "UTF-8" );
+$sectionabaut = htmlentities( addslashes($_POST['sectionabaut']), ENT_QUOTES, "UTF-8" );
+$sectionmetadesc = htmlentities( addslashes( $_POST['sectionmetadesc']), ENT_QUOTES, "UTF-8" );
+$sectionmetakey= htmlentities( addslashes( $_POST['sectionmetakey']), ENT_QUOTES, "UTF-8" );
 $fb = addslashes($_POST['fb']);
 $tw = addslashes($_POST['tw']);
 $gooplus = addslashes($_POST['gooplus']);
 $github = addslashes($_POST['github']);
 $linkem = addslashes($_POST['linkem']);
 $codepen = addslashes($_POST['codepen']);
-$footer = addslashes($_POST['footer']);
-
+$footer = htmlentities( addslashes($_POST['footer']), ENT_QUOTES, "UTF-8" );
 
 $updetesetting = " update config set 
                  logo_blog = '$logo_blog',
