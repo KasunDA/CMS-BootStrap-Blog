@@ -11,16 +11,16 @@ $logo_blog = htmlentities(addslashes($_POST['logoblog']));
 $nameblog = addslashes($_POST['nameblog']);
 $titleblog = addslashes($_POST['titleblog']);
 $sttitleblog = addslashes($_POST['sttitleblog']);
-$sectionabaut = htmlentities(addslashes($_POST['sectionabaut']));
-$sectionmetadesc = htmlentities(addslashes( $_POST['sectionmetadesc']) );
-$sectionmetakey= htmlentities(addslashes( $_POST['sectionmetakey']) );
+$sectionabaut = addslashes($_POST['sectionabaut']);
+$sectionmetadesc = addslashes( $_POST['sectionmetadesc']) ;
+$sectionmetakey= addslashes( $_POST['sectionmetakey']) ;
 $fb = addslashes($_POST['fb']);
 $tw = addslashes($_POST['tw']);
 $gooplus = addslashes($_POST['gooplus']);
 $github = addslashes($_POST['github']);
 $linkem = addslashes($_POST['linkem']);
 $codepen = addslashes($_POST['codepen']);
-$footer = htmlentities(addslashes($_POST['footer']));
+$footer = addslashes($_POST['footer']);
 
 
 $updetesetting = " update config set 
