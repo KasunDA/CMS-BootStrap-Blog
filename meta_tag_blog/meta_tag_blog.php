@@ -1,6 +1,6 @@
 <?php
-$sectionmetadesc = html_entity_decode($rowsetting['sectionmetadesc']);
-$sectionmetakey= html_entity_decode($rowsetting['sectionmetakey']);
+$sectionmetadesc = html_entity_decode($rowsetting['sectionmetadesc'], ENT_QUOTES, "UTF-8");
+$sectionmetakey= html_entity_decode($rowsetting['sectionmetakey'], ENT_QUOTES, "UTF-8");
 $metadesc = NULL;
 $metakey = NULL;
 
