@@ -1,5 +1,5 @@
 <?php
-$footer =  html_entity_decode($rowsetting['footer_blog']);
+$footer =  html_entity_decode( $rowsetting['footer_blog'], ENT_QUOTES, "UTF-8" );
 $anncopy = date('Y');
 ?>
 <footer class="blog-footer">
