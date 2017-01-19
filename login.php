@@ -12,11 +12,11 @@ setcookie($ncookie,$vcookie,$dcookie);
 ?>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-    <title>CMS Bootstrap Blog - Login</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link href="assets/css/bootstrap.css" rel="stylesheet">   
-     <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">	 
+<title>CMS Bootstrap Blog - Login</title>
+<meta charset="utf-8">    
+ <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<link href="../assets/css/bootstrap.css" rel="stylesheet">   
+<link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">	 
    <link rel="stylesheet" href="../fontawesome/font-awesome/css/font-awesome.min.css">
     <style type="text/css">
       body {
@@ -53,9 +53,10 @@ setcookie($ncookie,$vcookie,$dcookie);
  
     </style>
 
-<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-<script src="assets/js/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
 
