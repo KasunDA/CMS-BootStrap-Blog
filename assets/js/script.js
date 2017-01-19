@@ -362,7 +362,7 @@ type: 'GET',
 dataType:'html',
 success: function(){
 $(location).attr( 'href',"/administrator/"+url);		        
-},
+}
 }); //ajax  
 
 });
@@ -389,7 +389,7 @@ type: 'GET',
 dataType:'html',
 success: function(){
 $(location).attr( 'href',"/administrator/"+url);		        
-},
+}
 }); //ajax  
 
 });
@@ -416,7 +416,7 @@ type: 'GET',
 dataType:'html',
 success: function(){
 $(location).attr( 'href',"/administrator/"+url);		        
-},
+}
 }); //ajax  
 
 });
@@ -502,7 +502,7 @@ var aazero = aa[0];
 var aauno = aa[1];
 var html = "<input type=\"text\" name=\"vocemenu\" value=\""+aazero+"\" id=\"voce\"> <label><b><em>url voce >> </em></b><input type=\"text\" name=\"urlvoce\" value=\""+aauno+"\" id=\"url\" readonly=\"readonly\"></label> ";
 $('form#mod_menu_'+indice+' span').html(html);	        
-},
+}
 }); //ajax  
 });
 
