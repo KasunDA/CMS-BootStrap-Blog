@@ -57,7 +57,7 @@ $q_ult_acc= "update admin set ult_acc='$access' where username='$user'"	;
 $result_ult_acc = @mysqli_query($myconn,$q_ult_acc) or die( "Errore....".mysqli_error($myconn) );		
 }
 
-if (!isset($_COOKIE[$nomecookie])) {
+if (!isset($_COOKIE[$nomecookie])  || isset($_COOKIE[$nomecookie])) {
 setcookie($nomecookie,$valore_cookie,$time );
 }
 
